@@ -50,7 +50,6 @@ public class Movement : MonoBehaviour
                 if (leftControllerSwing > 0.005f && rightControllerSwing > 0.005f)
                 {
                     Vector3 forward = new Vector3(head.forward.x, 0f, head.forward.z);
-                    Debug.LogError(forward);
                     transform.position += forward * Time.fixedDeltaTime * (speedFactor * (leftControllerSwing + rightControllerSwing));
                 }
                 break;
