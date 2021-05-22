@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class TimeArea : MonoBehaviour
 {
+    public enum State
+    {
+        NotInitialize,
+        Initialized,
+        Set
+    }
+
     public float survivalTime = 3f;
     public float speedFactor = 1f;
 
@@ -52,11 +59,4 @@ public class TimeArea : MonoBehaviour
         currentTime = survivalTime;
         state = State.Initialized;
     }
-}
-
-public enum State
-{
-    NotInitialize,
-    Initialized,
-    Set
 }

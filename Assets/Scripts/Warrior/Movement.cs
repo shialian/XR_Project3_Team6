@@ -22,18 +22,9 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        switch (type)
+        if(type == MovingType.Thumbstick)
         {
-            case MovingType.Thumbstick:
-                thumbstickInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
-                break;
-            case MovingType.ControllerSwinging:
-                lastLeftControllerPosition = currLeftControllerPosition;
-                lastRightControllerPosition = currRightControllerPosition;
-                currLeftControllerPosition = leftHandController.localPosition;
-                currRightControllerPosition = rightHandController.localPosition;
-                controllerHeightDiff = Mathf.Abs(leftHandController.transform.position.y - rightHandController.position.y);
-                break;
+            thumbstickInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
         }
     }
 
@@ -45,13 +36,18 @@ public class Movement : MonoBehaviour
                 transform.position += new Vector3(thumbstickInput.x, 0.0f, thumbstickInput.y) * Time.fixedDeltaTime;
                 break;
             case MovingType.ControllerSwinging:
-                float leftControllerSwing = Vector3.Distance(lastLeftControllerPosition, currLeftControllerPosition);
-                float rightControllerSwing = Vector3.Distance(lastRightControllerPosition, currLeftControllerPosition);
-                if (leftControllerSwing > 0.005f && rightControllerSwing > 0.005f)
+                if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0 && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0)
                 {
+                    lastLeftControllerPosition = currLeftControllerPosition;
+                    lastRightControllerPosition = currRightControllerPosition;
+                    currLeftControllerPosition = leftHandController.localPosition;
+                    currRightControllerPosition = rightHandController.localPosition;
+                    float leftControllerSwing = Vector3.Distance(lastLeftControllerPosition, currLeftControllerPosition);
+                    float rightControllerSwing = Vector3.Distance(lastRightControllerPosition, currLeftControllerPosition);
                     Vector3 forward = new Vector3(head.forward.x, 0f, head.forward.z);
                     transform.position += forward * Time.fixedDeltaTime * (speedFactor * (leftControllerSwing + rightControllerSwing));
                 }
+                
                 break;
         }
     }

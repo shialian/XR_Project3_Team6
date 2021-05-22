@@ -34,6 +34,6 @@ public class CameraRotation : MonoBehaviour
         cameraY += mouseX;
         cameraX = Mathf.Clamp(cameraX, verticalLowerBound, verticalUpperBound);
         Vector3 newRotation = new Vector3(cameraX, cameraY, 0f);
-        transform.rotation = Quaternion.Euler(newRotation);
+        transform.localRotation = Quaternion.Euler(newRotation);
     }
 }
