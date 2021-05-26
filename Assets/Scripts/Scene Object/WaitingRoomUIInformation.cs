@@ -5,7 +5,7 @@ using Mirror;
 
 public class WaitingRoomUIInformation : NetworkBehaviour
 {
-    public GameObject countdown;
+    public TextCountdown countdown;
     public GameObject playerOneReadyUI;
     public GameObject playerTwoReadyUI;
     public GameObject hint;
@@ -17,13 +17,14 @@ public class WaitingRoomUIInformation : NetworkBehaviour
     public bool playerTwoReady = false;
 
     private GameObject localPlayer = null;
-
     private int playerID;
+    private bool sceneIsLoaded;
 
     private void Start()
     {
         playerOneReadyUI.SetActive(false);
         playerTwoReadyUI.SetActive(false);
+        sceneIsLoaded = false;
     }
 
     private void Update()
@@ -39,11 +40,18 @@ public class WaitingRoomUIInformation : NetworkBehaviour
         SetPlayerReadyUI();
         if (AllPlayerAreReady()) {
             hint.SetActive(false);
-            countdown.SetActive(true);
-            if (isServer)
+            countdown.gameObject.SetActive(true);
+            if (isServer && countdown.timer <= 0 && sceneIsLoaded == false)
             {
-                StartCoroutine(SendLoadScene(nextSceneName, 5.0f));
+                sceneIsLoaded = true;
+                GameManager.singleton.LoadScene(nextSceneName);
             }
+        }
+        else
+        {
+            hint.SetActive(true);
+            countdown.gameObject.SetActive(false);
+            countdown.timer = countdown.countdown;
         }
     }
 
@@ -96,11 +104,5 @@ public class WaitingRoomUIInformation : NetworkBehaviour
     private bool AllPlayerAreReady()
     {
         return playerOneReady && playerTwoReady;
-    }
-
-    private IEnumerator SendLoadScene(string sceneName, float time)
-    {
-        yield return new WaitForSeconds(time);
-        GameManager.singleton.LoadScene(sceneName);
     }
 }

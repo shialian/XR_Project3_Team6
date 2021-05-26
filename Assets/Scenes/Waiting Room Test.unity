@@ -2061,11 +2061,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  countdown: {fileID: 2014430392}
+  countdown: {fileID: 2014430396}
   playerOneReadyUI: {fileID: 361381281}
   playerTwoReadyUI: {fileID: 1458341874}
   hint: {fileID: 1986609252}
-  nextSceneName: test
+  nextSceneName: stage1
   playerOneReady: 0
   playerTwoReady: 0
 --- !u!114 &1651457741
@@ -2257,6 +2257,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_Name
       value: OVRCameraRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_RootOrder
@@ -2587,3 +2591,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   msg: "\u6E96\u5099\u958B\u59CB"
   countdown: 5
+  timer: 0

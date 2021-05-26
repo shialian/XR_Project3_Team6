@@ -8,19 +8,23 @@ public class TextCountdown : MonoBehaviour
     public string msg;
     public float countdown;
 
+    [HideInInspector]
+    public float timer;
+
     private TextMeshProUGUI text;
 
     private void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
+        timer = countdown;
     }
 
     private void Update()
     {
-        countdown -= Time.deltaTime;
-        if(countdown >= 0)
+        timer -= Time.deltaTime;
+        if(timer >= 0)
         {
-            int time = (int)Mathf.Ceil(countdown);
+            int time = (int)Mathf.Ceil(timer);
             text.SetText(msg + "\n" + time.ToString());
         }
     }

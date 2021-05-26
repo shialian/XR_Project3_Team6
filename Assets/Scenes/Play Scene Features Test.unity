@@ -1015,6 +1015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 7175997886239967081, guid: 7f52eea88113d4d4fa72d0b88c212913,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7175997886239967085, guid: 7f52eea88113d4d4fa72d0b88c212913,
         type: 3}
       propertyPath: m_RootOrder
