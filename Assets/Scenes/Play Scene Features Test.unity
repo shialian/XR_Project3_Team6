@@ -995,6 +995,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7175997885772695414, guid: 7f52eea88113d4d4fa72d0b88c212913,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175997885959187331, guid: 7f52eea88113d4d4fa72d0b88c212913,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 7175997886013104219, guid: 7f52eea88113d4d4fa72d0b88c212913,
         type: 3}
       propertyPath: timeAreaManager
@@ -1023,7 +1033,7 @@ PrefabInstance:
     - target: {fileID: 7175997886239967085, guid: 7f52eea88113d4d4fa72d0b88c212913,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.18
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 7175997886239967085, guid: 7f52eea88113d4d4fa72d0b88c212913,
         type: 3}
