@@ -20,24 +20,35 @@ public class MyMagicTypeText : MonoBehaviour
                 magicText[1].SetActive(false);
                 magicText[2].SetActive(false);
                 magicText[3].SetActive(false);
+                magicText[4].SetActive(true);
                 break;
             case MyTimeState.SpeedUp:
                 magicText[0].SetActive(false);
                 magicText[1].SetActive(true);
                 magicText[2].SetActive(false);
                 magicText[3].SetActive(false);
+                magicText[4].SetActive(true);
                 break;
             case MyTimeState.SlowDown:
                 magicText[0].SetActive(false);
                 magicText[1].SetActive(false);
                 magicText[2].SetActive(true);
                 magicText[3].SetActive(false);
+                magicText[4].SetActive(true);
                 break;
             case MyTimeState.BackWard:
                 magicText[0].SetActive(false);
                 magicText[1].SetActive(false);
                 magicText[2].SetActive(false);
                 magicText[3].SetActive(true);
+                magicText[4].SetActive(true);
+                break;
+            case MyTimeState.Normal:
+                magicText[0].SetActive(false);
+                magicText[1].SetActive(false);
+                magicText[2].SetActive(false);
+                magicText[3].SetActive(false);
+                magicText[4].SetActive(false);
                 break;
         }
     }

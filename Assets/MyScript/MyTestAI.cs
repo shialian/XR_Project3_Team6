@@ -15,6 +15,10 @@ public class MyTestAI : MonoBehaviour
 
     public Color[] color;
     public MyTimeState timeState = MyTimeState.Normal;
+
+    public GameObject footstepVFX;
+    public Transform leftFootRef;
+    public Transform rightFootRef;
     // Start is called before the first frame update
     void Start()
     {
@@ -128,6 +132,19 @@ public class MyTestAI : MonoBehaviour
         yield return new WaitForSeconds(time);
         outlinable.OutlineParameters.Enabled = false;
         timeState = MyTimeState.Normal;
+    }
+
+    public void CreateFootstepSFX(float isLeft)
+    {
+
+        if (isLeft > 0)
+        {
+            Instantiate(footstepVFX, leftFootRef);
+        }
+        else
+        {
+            Instantiate(footstepVFX, rightFootRef);
+        }
     }
 }
 

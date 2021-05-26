@@ -65,17 +65,17 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 1
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RingColorIntensity: 1
-    - _RingIntensityScale: 3
+    - _RingIntensityScale: 5
     - _RingRange: 5
-    - _RingSpeed: 1
-    - _RingWidth: 0.5
+    - _RingSpeed: 5
+    - _RingWidth: 2
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

@@ -44,13 +44,17 @@ public class MyShootController : MonoBehaviour
         {
             shootType = MyTimeState.BackWard;
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            shootType = MyTimeState.Normal;
+        }
     }
 
     private void ShootTheSkill()
     {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-        Physics.Raycast(ray, out hit, 10000f);
+        Physics.Raycast(ray, out hit, 10000f,  LayerMask.GetMask("Plane"));
         if (hit.collider != null && hit.collider.tag == "Plane")
         {
             switch (shootType)
@@ -66,6 +70,8 @@ public class MyShootController : MonoBehaviour
                     break;
                 case MyTimeState.BackWard:
                     timeAreaManager_backward.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                    break;
+                case MyTimeState.Normal:
                     break;
             }
             //timeAreaManager.CreateTimeArea(transform.position, Quaternion.identity, hit.point);

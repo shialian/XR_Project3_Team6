@@ -9,6 +9,7 @@ public class MyMovement : MonoBehaviour
     public MyMovingType type;
     public float speedFactor;
 
+
     private Vector2 thumbstickInput;
     private Vector2 keyboardInput;
     private float controllerHeightDiff;
