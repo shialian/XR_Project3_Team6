@@ -70,7 +70,7 @@ public class MyTestAI : MonoBehaviour
             case MyTimeState.SpeedUp:
                 outlinable.OutlineParameters.Color = color[1];
                 localClock.paused = false;
-                localClock.localTimeScale = 2.0f;
+                localClock.localTimeScale = 1.5f;
                 break;
             case MyTimeState.SlowDown:
                 outlinable.OutlineParameters.Color = color[2];

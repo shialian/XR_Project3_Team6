@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   survivalTime: 3
-  speedFactor: 10
+  speedFactor: 15
 --- !u!54 &8340580159554786502
 Rigidbody:
   m_ObjectHideFlags: 0
