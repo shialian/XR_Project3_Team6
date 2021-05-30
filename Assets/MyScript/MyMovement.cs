@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Chronos;
 
 public class MyMovement : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class MyMovement : MonoBehaviour
     public MyMovingType type;
     public float speedFactor;
 
-
+    private LocalClock localClock;
+    private Animator anim;
     private Vector2 thumbstickInput;
     private Vector2 keyboardInput;
     private float controllerHeightDiff;
@@ -18,6 +20,8 @@ public class MyMovement : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
+        localClock = GetComponent<LocalClock>();
         currLeftControllerPosition = leftHandController.localPosition;
         currRightControllerPosition = rightHandController.localPosition;
     }
@@ -40,7 +44,10 @@ public class MyMovement : MonoBehaviour
         switch (type)
         {
             case MyMovingType.Thumbstick:
-                transform.position += new Vector3(thumbstickInput.x, 0.0f, thumbstickInput.y) * Time.fixedDeltaTime;
+                Debug.LogError(localClock.fixedDeltaTime);
+                anim.SetFloat("Forward", thumbstickInput.y);
+                anim.SetFloat("Turn", thumbstickInput.x);
+                transform.position += speedFactor * new Vector3(thumbstickInput.x, 0.0f, thumbstickInput.y) * localClock.fixedDeltaTime;
                 break;
             case MyMovingType.ControllerSwinging:
                 if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0 && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0)
@@ -52,11 +59,16 @@ public class MyMovement : MonoBehaviour
                     float leftControllerSwing = Vector3.Distance(lastLeftControllerPosition, currLeftControllerPosition);
                     float rightControllerSwing = Vector3.Distance(lastRightControllerPosition, currLeftControllerPosition);
                     Vector3 forward = new Vector3(head.forward.x, 0f, head.forward.z);
-                    transform.position += forward * Time.fixedDeltaTime * (speedFactor * (leftControllerSwing + rightControllerSwing));
+                    float animForward = leftControllerSwing + rightControllerSwing;
+                    animForward = Mathf.Clamp01(animForward);
+                    anim.SetFloat("Forward", animForward);
+                    transform.position += forward * localClock.fixedDeltaTime * (speedFactor * (leftControllerSwing + rightControllerSwing));
                 }
                 break;
             case MyMovingType.Keyboard:
-                transform.position += new Vector3(keyboardInput.x, 0.0f, keyboardInput.y) * speedFactor * Time.fixedDeltaTime;
+                anim.SetFloat("Forward", keyboardInput.y);
+                anim.SetFloat("Turn", keyboardInput.x);
+                transform.position += new Vector3(keyboardInput.x, 0.0f, keyboardInput.y) * speedFactor * localClock.fixedDeltaTime;
                 break;
         }
     }

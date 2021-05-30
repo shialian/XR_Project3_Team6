@@ -9,8 +9,17 @@ public class MovingGoal : MonoBehaviour
     {
         if(collision.transform.tag == "Player")
         {
-            collision.transform.GetComponent<Movement>().enabled = false;
-            collision.transform.GetComponent<Throw>().enabled = true;
+            Transform warrior = collision.transform;
+            if (warrior.GetComponent<Movement>() != null)
+            {
+                warrior.GetComponent<Movement>().enabled = false;
+            }
+            if (warrior.GetComponent<MyMovement>() != null)
+            {
+                warrior.GetComponent<MyMovement>().enabled = false;
+            }
+            warrior.GetComponent<Throw>().enabled = true;
+            warrior.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
 }

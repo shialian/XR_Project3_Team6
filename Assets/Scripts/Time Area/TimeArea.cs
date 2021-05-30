@@ -11,7 +11,7 @@ public class TimeArea : MonoBehaviour
         Set
     }
 
-    public float survivalTime = 3f;
+    public float survivalTime = 1000f;
     public float speedFactor = 1f;
 
     private State state;
@@ -34,7 +34,7 @@ public class TimeArea : MonoBehaviour
         switch (state)
         {
             case State.Initialized:
-                if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+                if (Vector3.Distance(transform.position, targetPosition) > 0.2f)
                 {
                     Vector3 direction = (targetPosition - transform.position).normalized;
                     transform.position += speedFactor * direction * Time.fixedDeltaTime;

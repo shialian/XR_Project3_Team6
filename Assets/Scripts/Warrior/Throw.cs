@@ -23,6 +23,7 @@ public class Throw : MonoBehaviour
     private void Start()
     {
         state = State.OnYawSelection;
+        transform.rotation = Quaternion.identity;
         selectionPointer.SetActive(true);
     }
 
@@ -89,7 +90,6 @@ public class Throw : MonoBehaviour
         float pitch = selectionPointer.transform.localRotation.eulerAngles.x;
         if (pitch > 180f)
             pitch -= 360f;
-        Debug.LogError(pitch);
         if (pitch > 0f || pitch < -88f)
         {
             pitchRotateAngle *= -1f;
@@ -108,7 +108,9 @@ public class Throw : MonoBehaviour
 
     private void Throwing()
     {
-        wizzard.AddForce(selectionPointer.transform.forward * 1000f);
+        wizzard.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        wizzard.AddForce(selectionPointer.transform.localScale.z * selectionPointer.transform.forward * 2000f);
         wizzard.useGravity = true;
+        this.enabled = false;
     }
 }

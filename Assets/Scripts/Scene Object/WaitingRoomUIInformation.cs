@@ -29,6 +29,7 @@ public class WaitingRoomUIInformation : NetworkBehaviour
 
     private void Update()
     {
+        Debug.LogError(playerID);
         if(NetworkClient.ready && localPlayer == null)
         {
             SetLocalPlayer();
