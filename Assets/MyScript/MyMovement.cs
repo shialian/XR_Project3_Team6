@@ -44,7 +44,6 @@ public class MyMovement : MonoBehaviour
         switch (type)
         {
             case MyMovingType.Thumbstick:
-                Debug.LogError(localClock.fixedDeltaTime);
                 anim.SetFloat("Forward", thumbstickInput.y);
                 anim.SetFloat("Turn", thumbstickInput.x);
                 transform.position += speedFactor * new Vector3(thumbstickInput.x, 0.0f, thumbstickInput.y) * localClock.fixedDeltaTime;

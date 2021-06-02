@@ -16,7 +16,6 @@ public class WaitingRoomUIInformation : NetworkBehaviour
     [SyncVar]
     public bool playerTwoReady = false;
 
-    private GameObject localPlayer = null;
     private int playerID;
     private bool sceneIsLoaded;
 
@@ -25,19 +24,24 @@ public class WaitingRoomUIInformation : NetworkBehaviour
         playerOneReadyUI.SetActive(false);
         playerTwoReadyUI.SetActive(false);
         sceneIsLoaded = false;
+        playerID = 0;
     }
 
     private void Update()
     {
-        Debug.LogError(playerID);
-        if(NetworkClient.ready && localPlayer == null)
+        // Get player ID when client is ready
+        if(NetworkClient.ready && playerID == 0)
         {
-            SetLocalPlayer();
+            playerID = GameManager.singleton.localPlayerID;
         }
+
+        // Input event
         if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown(KeyCode.A))
         {
             SetPlayerReadyState(playerID);
         }
+
+        // Player ready
         SetPlayerReadyUI();
         if (AllPlayerAreReady()) {
             hint.SetActive(false);
@@ -45,7 +49,7 @@ public class WaitingRoomUIInformation : NetworkBehaviour
             if (isServer && countdown.timer <= 0 && sceneIsLoaded == false)
             {
                 sceneIsLoaded = true;
-                GameManager.singleton.LoadScene(nextSceneName);
+                GameManager.singleton.LoadScene(nextSceneName, 1);
             }
         }
         else
@@ -53,19 +57,6 @@ public class WaitingRoomUIInformation : NetworkBehaviour
             hint.SetActive(true);
             countdown.gameObject.SetActive(false);
             countdown.timer = countdown.countdown;
-        }
-    }
-
-    private void SetLocalPlayer()
-    {
-        localPlayer = NetworkClient.localPlayer.gameObject;
-        if (Vector3.Distance(localPlayer.transform.position, playerOneReadyUI.transform.position) < Vector3.Distance(localPlayer.transform.position, playerTwoReadyUI.transform.position))
-        {
-            playerID = 1;
-        }
-        else
-        {
-            playerID = 2;
         }
     }
 
