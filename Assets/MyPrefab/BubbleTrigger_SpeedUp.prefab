@@ -142,5 +142,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTrigger: 1
   effectType: 2
-  effectTimeLength: 10
+  effectTimeLength: 3
   bubbleVFX: {fileID: 100004, guid: 5f1a0937ae5d93e469a3c4b64b72601b, type: 3}

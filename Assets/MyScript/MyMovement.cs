@@ -17,6 +17,7 @@ public class MyMovement : MonoBehaviour
     private float controllerHeightDiff;
     private Vector3 lastLeftControllerPosition, lastRightControllerPosition;
     private Vector3 currLeftControllerPosition, currRightControllerPosition;
+    private LocalClock localClock;
 
     private void Start()
     {
@@ -24,6 +25,8 @@ public class MyMovement : MonoBehaviour
         timeLine = GetComponent<Timeline>();
         currLeftControllerPosition = leftHandController.localPosition;
         currRightControllerPosition = rightHandController.localPosition;
+
+        localClock = GetComponent<LocalClock>();
     }
 
     private void Update()
@@ -67,7 +70,7 @@ public class MyMovement : MonoBehaviour
             case MyMovingType.Keyboard:
                 anim.SetFloat("Forward", keyboardInput.y);
                 anim.SetFloat("Turn", keyboardInput.x);
-                transform.position += new Vector3(keyboardInput.x, 0.0f, keyboardInput.y) * speedFactor * timeLine.fixedDeltaTime;
+                transform.position += new Vector3(keyboardInput.x, 0.0f, keyboardInput.y) * speedFactor * timeLine.fixedDeltaTime * localClock.localTimeScale;
                 break;
         }
     }

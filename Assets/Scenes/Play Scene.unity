@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.63837606, g: 0.8876793, b: 0.91604, a: 1}
+  m_IndirectSpecularColor: {r: 0.63837844, g: 0.88768196, b: 0.91604143, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2458,6 +2458,9 @@ Transform:
   - {fileID: 416202860}
   - {fileID: 1001651472}
   - {fileID: 1175786079}
+  - {fileID: 636167768}
+  - {fileID: 1087488063}
+  - {fileID: 1675701788}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3861,6 +3864,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255777083}
   m_Mesh: {fileID: 4300000, guid: 3fd42f9a5616b60489c8ba4a4fe697bd, type: 3}
+--- !u!1001 &260127041
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 182918000}
+    m_Modifications:
+    - target: {fileID: 2587646643055786397, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_Name
+      value: Time Area Pool (SpeedUp)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786399, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: timeAreaPrefab
+      value: 
+      objectReference: {fileID: 1739537298632622882, guid: 394d5157bc221bd4e80a5a04b6ab5cee,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 477d4798eff1ca041baf369f3550c051, type: 3}
 --- !u!1 &265238696
 GameObject:
   m_ObjectHideFlags: 0
@@ -8729,6 +8807,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &636167768 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+    type: 3}
+  m_PrefabInstance: {fileID: 1232459689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &636167769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2587646643055786399, guid: 477d4798eff1ca041baf369f3550c051,
+    type: 3}
+  m_PrefabInstance: {fileID: 1232459689}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd4d87b0f34cd54692cf3449d88937b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &643870117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12283,6 +12379,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be36d653ace33a3458db1b13391be579, type: 3}
+--- !u!1001 &946933272
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 182918000}
+    m_Modifications:
+    - target: {fileID: 2587646643055786397, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_Name
+      value: Time Area Pool (Pause)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786399, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: timeAreaPrefab
+      value: 
+      objectReference: {fileID: 3970040390869378943, guid: 6fef01546d8792045b8890f319724a41,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 477d4798eff1ca041baf369f3550c051, type: 3}
 --- !u!1 &948978623
 GameObject:
   m_ObjectHideFlags: 0
@@ -13498,7 +13669,7 @@ PrefabInstance:
     - target: {fileID: 2587646643055786397, guid: 477d4798eff1ca041baf369f3550c051,
         type: 3}
       propertyPath: m_Name
-      value: Time Area Pool (Stop)
+      value: Time Trigger Pool (Stop)
       objectReference: {fileID: 0}
     - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
         type: 3}
@@ -14214,6 +14385,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076257651}
   m_Mesh: {fileID: 4300000, guid: 1e5dd6ddc424a10449056668198a2171, type: 3}
+--- !u!4 &1087488063 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+    type: 3}
+  m_PrefabInstance: {fileID: 260127041}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1087488064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2587646643055786399, guid: 477d4798eff1ca041baf369f3550c051,
+    type: 3}
+  m_PrefabInstance: {fileID: 260127041}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd4d87b0f34cd54692cf3449d88937b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1095225367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15141,7 +15330,7 @@ PrefabInstance:
     - target: {fileID: 2587646643055786397, guid: 477d4798eff1ca041baf369f3550c051,
         type: 3}
       propertyPath: m_Name
-      value: Time Area Pool (Backword)
+      value: Time Trigger Pool (Backword)
       objectReference: {fileID: 0}
     - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
         type: 3}
@@ -15658,6 +15847,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e15540f61291fc4daaadde284334e9a, type: 3}
+--- !u!1001 &1232459689
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 182918000}
+    m_Modifications:
+    - target: {fileID: 2587646643055786397, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_Name
+      value: Time Area Pool (SlowDown)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587646643055786399, guid: 477d4798eff1ca041baf369f3550c051,
+        type: 3}
+      propertyPath: timeAreaPrefab
+      value: 
+      objectReference: {fileID: 1881305038957489702, guid: c2857e862c9d3994387f0c9c40b1662c,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 477d4798eff1ca041baf369f3550c051, type: 3}
 --- !u!1 &1235834780
 GameObject:
   m_ObjectHideFlags: 0
@@ -16758,14 +17022,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
         type: 3}
+      propertyPath: timeBoxManager_pause
+      value: 
+      objectReference: {fileID: 1675701789}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
       propertyPath: timeAreaManager_pause
       value: 
       objectReference: {fileID: 1001651473}
     - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
         type: 3}
+      propertyPath: timeBoxManager_speedUp
+      value: 
+      objectReference: {fileID: 1087488064}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
       propertyPath: timeAreaManager_speedUp
       value: 
       objectReference: {fileID: 416202861}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
+      propertyPath: timeBoxManager_slowDown
+      value: 
+      objectReference: {fileID: 636167769}
     - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
         type: 3}
       propertyPath: timeAreaManager_backward
@@ -17390,7 +17669,7 @@ PrefabInstance:
     - target: {fileID: 2587646643055786397, guid: 477d4798eff1ca041baf369f3550c051,
         type: 3}
       propertyPath: m_Name
-      value: Time Area Pool (SpeedUp)
+      value: Time Trigger Pool (SpeedUp)
       objectReference: {fileID: 0}
     - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
         type: 3}
@@ -20703,6 +20982,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659373713}
   m_Mesh: {fileID: 4300000, guid: 8f9d69cd77c6d7345a3253b6872e3675, type: 3}
+--- !u!4 &1675701788 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
+    type: 3}
+  m_PrefabInstance: {fileID: 946933272}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1675701789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2587646643055786399, guid: 477d4798eff1ca041baf369f3550c051,
+    type: 3}
+  m_PrefabInstance: {fileID: 946933272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd4d87b0f34cd54692cf3449d88937b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1677435141 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45,
@@ -25317,7 +25614,7 @@ PrefabInstance:
     - target: {fileID: 2587646643055786397, guid: 477d4798eff1ca041baf369f3550c051,
         type: 3}
       propertyPath: m_Name
-      value: Time Area Pool (SlowDown)
+      value: Time Trigger Pool (SlowDown)
       objectReference: {fileID: 0}
     - target: {fileID: 2587646643055786398, guid: 477d4798eff1ca041baf369f3550c051,
         type: 3}

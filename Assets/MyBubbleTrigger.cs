@@ -18,12 +18,15 @@ public class MyBubbleTrigger : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (other.tag == "TimeTarget" && canTrigger == true)
+        if (other.tag == "Player" && canTrigger == true)
         {
-            Instantiate(bubbleVFX, transform.position, transform.rotation);
-            canTrigger = false;
-            other.GetComponent<MyTestAI>().SetState(effectType, effectTimeLength);
-            gameObject.SetActive(false);
+            MyTestAI ai = other.GetComponent<MyTestAI>();
+            if (ai != null) {
+                Instantiate(bubbleVFX, transform.position, transform.rotation);
+                canTrigger = false;
+                other.GetComponent<MyTestAI>().SetState(effectType, effectTimeLength);
+                gameObject.SetActive(false);
+            }
         }
     }
 }

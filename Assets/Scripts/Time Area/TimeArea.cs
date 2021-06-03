@@ -21,6 +21,8 @@ public class TimeArea : MonoBehaviour
     private TimeAreaManager manager;
     private float currentTime;
 
+    private MyScaleSpring myScaleSpring;
+
 
     private void Awake()
     {
@@ -30,6 +32,8 @@ public class TimeArea : MonoBehaviour
     private void Start()
     {
         manager = transform.parent.GetComponent<TimeAreaManager>();
+
+        myScaleSpring = GetComponent<MyScaleSpring>();
     }
 
     private void FixedUpdate()
@@ -59,6 +63,10 @@ public class TimeArea : MonoBehaviour
                 if (currentTime < 0)
                 {
                     Instantiate(bubbleVFX, transform.position, transform.rotation);
+                    if (myScaleSpring != null)
+                    {
+                        myScaleSpring.ResetSize();
+                    }
                     manager.DisableTimeArea(this);
                 }
                 break;

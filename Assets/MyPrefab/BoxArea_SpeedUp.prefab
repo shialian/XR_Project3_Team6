@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1739537298632622881}
   - component: {fileID: 1739537298632622882}
   - component: {fileID: 1739537298632622884}
+  - component: {fileID: -1433112557661540393}
   m_Layer: 0
   m_Name: BoxArea_SpeedUp
   m_TagString: Untagged
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1616453457ddc64f9e41c5f2e254295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  survivalTime: 1000
+  survivalTime: 5
   speedFactor: 1
   bubbleVFX: {fileID: 100004, guid: 5f1a0937ae5d93e469a3c4b64b72601b, type: 3}
   isBox: 1
@@ -144,3 +145,20 @@ MonoBehaviour:
   effectType: 2
   effectTimeLength: 3
   bubbleVFX: {fileID: 100004, guid: 5f1a0937ae5d93e469a3c4b64b72601b, type: 3}
+--- !u!114 &-1433112557661540393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739537298632622883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4e20c92fe9ef348b1073b974f6fa5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 0.5
+  smallScale: 0.6
+  largeScale: 2
+  frequenceHZ: 6
+  halfLife: 0.5

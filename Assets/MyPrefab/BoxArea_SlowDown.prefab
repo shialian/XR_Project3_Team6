@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1881305038957489701}
   - component: {fileID: 1881305038957489702}
   - component: {fileID: 1881305038957489696}
+  - component: {fileID: -7367203743123136122}
   m_Layer: 0
   m_Name: BoxArea_SlowDown
   m_TagString: Untagged
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1616453457ddc64f9e41c5f2e254295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  survivalTime: 1000
+  survivalTime: 5
   speedFactor: 1
   bubbleVFX: {fileID: 100004, guid: 642bd52d1a9ebc64b9df90baaf3448eb, type: 3}
   isBox: 1
@@ -144,3 +145,20 @@ MonoBehaviour:
   effectType: 3
   effectTimeLength: 3
   bubbleVFX: {fileID: 100004, guid: 642bd52d1a9ebc64b9df90baaf3448eb, type: 3}
+--- !u!114 &-7367203743123136122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881305038957489703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4e20c92fe9ef348b1073b974f6fa5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 0.5
+  smallScale: 0.6
+  largeScale: 2
+  frequenceHZ: 6
+  halfLife: 0.5

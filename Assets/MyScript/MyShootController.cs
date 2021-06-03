@@ -97,13 +97,13 @@ public class MyShootController : MonoBehaviour
             switch (shootType)
             {
                 case MyTimeState.Pause:
-                    timeBoxManager_pause.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                    timeBoxManager_pause.CreateTimeArea(hit.point, Quaternion.identity, hit.point);
                     break;
                 case MyTimeState.SpeedUp:
-                    timeBoxManager_speedUp.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                    timeBoxManager_speedUp.CreateTimeArea(hit.point, Quaternion.identity, hit.point);
                     break;
                 case MyTimeState.SlowDown:
-                    timeBoxManager_slowDown.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                    timeBoxManager_slowDown.CreateTimeArea(hit.point, Quaternion.identity, hit.point);
                     break;
               
             }
