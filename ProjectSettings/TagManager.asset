@@ -8,6 +8,7 @@ TagManager:
   - TimeTarget
   - FxTemporaire
   - Wagon
+  - Cookie
   layers:
   - Default
   - TransparentFX

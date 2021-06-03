@@ -12,6 +12,7 @@ public class GameManager : NetworkBehaviour
     [HideInInspector]
     public int localPlayerID;
     public SyncList<GameObject> players = new SyncList<GameObject>();
+    public SyncList<int> getCookies = new SyncList<int>();
 
     private int prevNumPlayer;
 
@@ -19,6 +20,11 @@ public class GameManager : NetworkBehaviour
     {
         localPlayerID = 0;
         prevNumPlayer = numPlayer;
+        if (isServer)
+        {
+            getCookies.Add(0);
+            getCookies.Add(0);
+        }
         DontDestroyOnLoad(this);
     }
 
@@ -61,6 +67,12 @@ public class GameManager : NetworkBehaviour
         {
             players[id - 1] = player;
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void GetTheCookie(int id)
+    {
+        getCookies[id - 1]++;
     }
 
     public void LoadScene(string sceneName, int spawnID)

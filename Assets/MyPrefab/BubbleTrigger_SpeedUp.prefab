@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1616453457ddc64f9e41c5f2e254295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  survivalTime: 1000
+  survivalTime: 3
   speedFactor: 15
 --- !u!54 &8340580159554786502
 Rigidbody:
