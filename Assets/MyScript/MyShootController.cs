@@ -8,6 +8,11 @@ public class MyShootController : MonoBehaviour
     public TimeAreaManager timeAreaManager_speedUp;
     public TimeAreaManager timeAreaManager_slowDown;
     public TimeAreaManager timeAreaManager_backward;
+
+    public TimeAreaManager timeBoxManager_pause;
+    public TimeAreaManager timeBoxManager_speedUp;
+    public TimeAreaManager timeBoxManager_slowDown;
+
     public bool lockMouse;
 
     public MyTimeState shootType = MyTimeState.Pause;
@@ -22,11 +27,15 @@ public class MyShootController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftShift))
         {
             ShootTheSkill();
         }
 
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.LeftShift))
+        {
+            SetTheSkill();
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -77,4 +86,30 @@ public class MyShootController : MonoBehaviour
             //timeAreaManager.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
         }
     }
+
+    private void SetTheSkill()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+        Physics.Raycast(ray, out hit, 10000f, LayerMask.GetMask("Plane"));
+        if (hit.collider != null && hit.collider.tag == "Plane")
+        {
+            switch (shootType)
+            {
+                case MyTimeState.Pause:
+                    timeBoxManager_pause.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                    break;
+                case MyTimeState.SpeedUp:
+                    timeBoxManager_speedUp.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                    break;
+                case MyTimeState.SlowDown:
+                    timeBoxManager_slowDown.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                    break;
+              
+            }
+            //timeAreaManager.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+        }
+    }
+
+
 }

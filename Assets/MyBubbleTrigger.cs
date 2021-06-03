@@ -8,6 +8,7 @@ public class MyBubbleTrigger : MonoBehaviour
 
     public MyTimeState effectType;
     public float effectTimeLength;
+    public GameObject bubbleVFX;
 
     public void Start()
     {
@@ -19,6 +20,7 @@ public class MyBubbleTrigger : MonoBehaviour
     {
         if (other.tag == "TimeTarget" && canTrigger == true)
         {
+            Instantiate(bubbleVFX, transform.position, transform.rotation);
             canTrigger = false;
             other.GetComponent<MyTestAI>().SetState(effectType, effectTimeLength);
             gameObject.SetActive(false);
