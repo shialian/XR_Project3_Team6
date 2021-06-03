@@ -5,11 +5,20 @@ using Mirror;
 public class ConnectionManager : NetworkManager
 {
     public GameObject connectionPanel;
-    public GameManager gm;
 
-    public void ChangedAddress(string newAddress)
+    [HideInInspector]
+    public static ConnectionManager cmSingleton = null;
+
+    private int spawnID = 0;
+
+    public void ChangeAddress(string newAddress)
     {
         this.networkAddress = newAddress;
+    }
+
+    public void ChangeSpawnID(int id)
+    {
+        spawnID = id;
     }
 
     #region Unity Callbacks
@@ -42,6 +51,8 @@ public class ConnectionManager : NetworkManager
     /// </summary>
     public override void LateUpdate()
     {
+        if (cmSingleton == null)
+            cmSingleton = this;
         base.LateUpdate();
     }
 
@@ -149,6 +160,7 @@ public class ConnectionManager : NetworkManager
     /// <param name="conn">Connection from client.</param>
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
+        playerPrefab = spawnPrefabs[spawnID];
         base.OnServerAddPlayer(conn);
     }
     
