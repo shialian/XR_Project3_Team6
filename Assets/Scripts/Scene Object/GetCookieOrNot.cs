@@ -8,7 +8,7 @@ public class GetCookieOrNot : MonoBehaviour
 
     private int playerID;
 
-    private void Start()
+    private void Awake()
     {
         playerID = 1;
         startPosition = new Transform[2];

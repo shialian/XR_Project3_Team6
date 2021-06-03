@@ -22,6 +22,7 @@ public class RecordPlayer : NetworkBehaviour
         {
             playerID = GameManager.singleton.localPlayerID;
         }
+        Debug.LogError(playerID);
         if (updated == false && playerID != 0 && Physics.Raycast(ray, out hit, 10.0f))
         {
             Debug.LogError(hit.transform);
