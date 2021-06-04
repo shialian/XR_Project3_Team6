@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 8340580159554786502}
   - component: {fileID: 8420131109797488824}
   m_Layer: 0
-  m_Name: BubbleArea_Pause
-  m_TagString: Untagged
+  m_Name: BubbleArea_Pause 1
+  m_TagString: Magic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   survivalTime: 3
   speedFactor: 10
+  bubbleVFX: {fileID: 0}
+  isBox: 0
 --- !u!54 &8340580159554786502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -138,3 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41d6081729152741811eaa5cd6965a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canTrigger: 1
+  effectType: 0
+  effectTimeLength: 0
+  bubbleVFX: {fileID: 0}

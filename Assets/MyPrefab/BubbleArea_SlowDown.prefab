@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 5351390303040856588}
   - component: {fileID: 8340580159554786502}
   m_Layer: 0
-  m_Name: Bubble_SlowDown
-  m_TagString: Untagged
+  m_Name: BubbleArea_SlowDown
+  m_TagString: Magic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   survivalTime: 3
   speedFactor: 10
+  bubbleVFX: {fileID: 0}
+  isBox: 0
 --- !u!114 &5351390303040856588
 MonoBehaviour:
   m_ObjectHideFlags: 0

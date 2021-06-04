@@ -129,7 +129,6 @@ public class MyScaleSpring : MonoBehaviour
 
     public void FixedUpdate()
     {
-        Debug.Log(10);
         if (Time.time - m_lastTickTime > interval)
             Tick(true);
 

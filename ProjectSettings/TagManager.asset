@@ -9,6 +9,7 @@ TagManager:
   - FxTemporaire
   - Wagon
   - Cookie
+  - Magic
   layers:
   - Default
   - TransparentFX

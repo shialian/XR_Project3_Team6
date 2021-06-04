@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4660397672388455801}
   - component: {fileID: 4126196235447422184}
   - component: {fileID: 9158063380113452577}
-  - component: {fileID: 5351390303040856588}
   - component: {fileID: 8340580159554786502}
+  - component: {fileID: -261688958658442119}
   m_Layer: 0
-  m_Name: BubbleArea_SpeedUp
+  m_Name: BubbleTrigger_Bong
   m_TagString: Magic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7723005463732854652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.36, y: 0.93, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 41bddb7455deaf440969cdb95babfdbc, type: 2}
+  - {fileID: 2100000, guid: e77a4e946c0721e42b15557db7539eca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,54 +108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1616453457ddc64f9e41c5f2e254295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  survivalTime: 3
-  speedFactor: 10
-  bubbleVFX: {fileID: 0}
+  survivalTime: 0.1
+  speedFactor: 15
+  bubbleVFX: {fileID: 8312354114586748751, guid: 641722c3a358b8f4abf576c405f9a934,
+    type: 3}
   isBox: 0
---- !u!114 &5351390303040856588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7723005463732854652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe56dd9bd4ddba541af670a6951aade9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _localTimeScale: 2
-  _paused: 0
-  _parentKey: 
-  _parentBlend: 0
-  _mode: 0
-  _curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _center: {x: 0, y: 0, z: 0}
-  _padding: 0.5
-  _innerBlend: 0
 --- !u!54 &8340580159554786502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -172,3 +129,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-261688958658442119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7723005463732854652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41d6081729152741811eaa5cd6965a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canTrigger: 1
+  effectType: 0
+  effectTimeLength: 10
+  bubbleVFX: {fileID: 8312354114586748751, guid: 641722c3a358b8f4abf576c405f9a934,
+    type: 3}
+  isBong: 1
+  isDestroyAfterTrigger: 1

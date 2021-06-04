@@ -62,7 +62,9 @@ public class TimeArea : MonoBehaviour
                 currentTime -= Time.fixedDeltaTime;
                 if (currentTime < 0)
                 {
-                    Instantiate(bubbleVFX, transform.position, transform.rotation);
+                    if (bubbleVFX != null) {
+                        Instantiate(bubbleVFX, transform.position, transform.rotation);
+                    }
                     if (myScaleSpring != null)
                     {
                         myScaleSpring.ResetSize();
@@ -80,4 +82,20 @@ public class TimeArea : MonoBehaviour
         currentTime = survivalTime;
         state = State.Initialized;
     }
+
+    public void Reset()
+    {
+        state = State.Set;
+        currentTime = -0.1f;
+        if (bubbleVFX != null)
+        {
+            Instantiate(bubbleVFX, transform.position, transform.rotation);
+        }
+        if (myScaleSpring != null)
+        {
+            myScaleSpring.ResetSize();
+        }
+        manager.DisableTimeArea(this);
+    }
+    
 }

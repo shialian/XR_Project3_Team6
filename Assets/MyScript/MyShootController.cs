@@ -13,6 +13,8 @@ public class MyShootController : MonoBehaviour
     public TimeAreaManager timeBoxManager_speedUp;
     public TimeAreaManager timeBoxManager_slowDown;
 
+    public TimeAreaManager timeBoxManager_bong;
+
     public bool lockMouse;
 
     public MyTimeState shootType = MyTimeState.Pause;
@@ -35,6 +37,11 @@ public class MyShootController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.LeftShift))
         {
             SetTheSkill();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1) && Input.GetKey(KeyCode.LeftShift))
+        {
+            SetBong();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -108,6 +115,17 @@ public class MyShootController : MonoBehaviour
               
             }
             //timeAreaManager.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+        }
+    }
+
+    private void SetBong()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+        Physics.Raycast(ray, out hit, 10000f, LayerMask.GetMask("Plane"));
+        if (hit.collider != null && hit.collider.tag == "Plane")
+        {
+            timeBoxManager_bong.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
         }
     }
 
