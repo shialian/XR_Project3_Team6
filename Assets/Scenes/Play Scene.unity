@@ -17205,8 +17205,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
         type: 3}
+      propertyPath: maxMagic
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
       propertyPath: shootType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
+      propertyPath: magicRecoverySpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
         type: 3}
@@ -17248,6 +17258,41 @@ PrefabInstance:
       propertyPath: timeAreaManager_slowDown
       value: 
       objectReference: {fileID: 2085715936}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
+      propertyPath: timeBoxManager_pause_consuming
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
+      propertyPath: timeAreaManager_pause_consuming
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
+      propertyPath: timeBoxManager_speedUp_consuming
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
+      propertyPath: timeAreaManager_speedUp_consuming
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
+      propertyPath: timeBoxManager_slowDown_consuming
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
+      propertyPath: timeAreaManager_backward_consuming
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358602382805346924, guid: 7a267efa19d2535409027a8ed32fb0a3,
+        type: 3}
+      propertyPath: timeAreaManager_slowDown_consuming
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8358602383175251412, guid: 7a267efa19d2535409027a8ed32fb0a3,
         type: 3}
       propertyPath: m_RootOrder
