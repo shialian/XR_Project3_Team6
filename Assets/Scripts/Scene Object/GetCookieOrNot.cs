@@ -10,11 +10,21 @@ public class GetCookieOrNot : MonoBehaviour
 
     private void Awake()
     {
-        playerID = 1;
+        playerID = 0;
         startPosition = new Transform[2];
-        startPosition[0] = GameObject.Find("Player 1 Spawn Position").transform;
-        startPosition[1] = GameObject.Find("Player 2 Spawn Position").transform;
-        //playerID = GameManager.singleton.localPlayerID;
+    }
+
+    private void Update()
+    {
+        if(GameManager.singleton && playerID == 0)
+        {
+            playerID = GameManager.singleton.localPlayerID;
+        }
+        if (startPosition[0] == null)
+        {
+            startPosition[0] = GameObject.Find("Player 1 Spawn Position").transform;
+            startPosition[1] = GameObject.Find("Player 2 Spawn Position").transform;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -25,6 +35,7 @@ public class GetCookieOrNot : MonoBehaviour
         }
         ResetWizzard(transform);
         ResetWarrior(transform.parent.parent);
+        ResetGoal();
     }
 
     private void ResetWizzard(Transform wizzard)
@@ -39,8 +50,13 @@ public class GetCookieOrNot : MonoBehaviour
     {
         warrior.position = startPosition[playerID - 1].position;
         warrior.rotation = startPosition[playerID - 1].rotation;
-        warrior.Find("Throwing Pointer").gameObject.SetActive(false);
+        warrior.GetComponent<Throw>().ResetAll();
         warrior.GetComponent<Throw>().enabled = false;
         warrior.GetComponent<MyMovement>().enabled = true;
+    }
+
+    private void ResetGoal()
+    {
+        GameObject.Find("Goal").GetComponent<MovingGoal>().throwOn = false;
     }
 }

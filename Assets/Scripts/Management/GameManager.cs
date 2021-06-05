@@ -7,24 +7,23 @@ public class GameManager : NetworkBehaviour
 {
     public static GameManager singleton = null;
 
-    [HideInInspector, SyncVar]
+    [SyncVar]
     public int numPlayer = 0;
     [HideInInspector]
     public int localPlayerID;
     public SyncList<GameObject> players = new SyncList<GameObject>();
     public SyncList<int> getCookies = new SyncList<int>();
-
-    private int prevNumPlayer;
+    public bool playerAdded;
 
     private void Start()
     {
         localPlayerID = 0;
-        prevNumPlayer = numPlayer;
         if (isServer)
         {
             getCookies.Add(0);
             getCookies.Add(0);
         }
+        playerAdded = false;
         DontDestroyOnLoad(this);
     }
 
@@ -34,15 +33,11 @@ public class GameManager : NetworkBehaviour
         {
             singleton = this;
         }
-        if (NetworkClient.ready && localPlayerID == 0 && numPlayer != prevNumPlayer)
+        if (NetworkClient.ready && localPlayerID == 0)
         {
             SetLocalPlayerID();
-        }
-        if(NetworkClient.ready && numPlayer == prevNumPlayer)
-        {
             NewPlayerAdd();
         }
-        
     }
 
     [Command(requiresAuthority = false)]
@@ -53,13 +48,13 @@ public class GameManager : NetworkBehaviour
 
     public void SetLocalPlayerID()
     {
-        localPlayerID = numPlayer;
+        localPlayerID = numPlayer + 1;
     }
 
     [Command(requiresAuthority = false)]
     public void UpdatePlayers(GameObject player, int id)
     {
-        if(players.Count < id)
+        if (players.Count < id)
         {
             players.Add(player);
         }

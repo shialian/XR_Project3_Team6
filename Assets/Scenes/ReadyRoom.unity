@@ -3082,13 +3082,13 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 7457759726168973998, guid: fcb4899dd6d9c7942b30409c93fdb940,
+  playerPrefab: {fileID: 1848921173637045936, guid: 697bc7bf9aafc2f47af0699506f9a947,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 7457759726168973998, guid: b13ae3a6eadd3544f8f36a588a840c0f, type: 3}
-  - {fileID: 7457759726168973998, guid: fcb4899dd6d9c7942b30409c93fdb940, type: 3}
+  - {fileID: 1848921173637045936, guid: 697bc7bf9aafc2f47af0699506f9a947, type: 3}
   connectionPanel: {fileID: 7945945095490682176}
 --- !u!114 &2406175992956524615
 MonoBehaviour:

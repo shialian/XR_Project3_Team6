@@ -38,6 +38,14 @@ public class MyShootController : MonoBehaviour
         }
 
         currentMagic = maxMagic;
+        timeAreaManager_pause = GameObject.Find("Time Trigger Pool (Stop)").GetComponent<TimeAreaManager>();
+        timeAreaManager_speedUp = GameObject.Find("Time Trigger Pool (SpeedUp)").GetComponent<TimeAreaManager>();
+        timeAreaManager_slowDown = GameObject.Find("Time Trigger Pool (SlowDown)").GetComponent<TimeAreaManager>();
+        timeAreaManager_backward = GameObject.Find("Time Trigger Pool (Backword)").GetComponent<TimeAreaManager>();
+        timeBoxManager_pause = GameObject.Find("Time Area Pool (Pause)").GetComponent<TimeAreaManager>();
+        timeBoxManager_speedUp = GameObject.Find("Time Area Pool (SpeedUp)").GetComponent<TimeAreaManager>();
+        timeBoxManager_slowDown = GameObject.Find("Time Area Pool (SlowDown)").GetComponent<TimeAreaManager>();
+        timeBoxManager_bong = GameObject.Find("Time Trigger Pool (Bong)").GetComponent<TimeAreaManager>();
     }
 
     private void Update()
@@ -99,28 +107,28 @@ public class MyShootController : MonoBehaviour
                 case MyTimeState.Pause:
                     if (currentMagic >= timeAreaManager_pause_consuming) {
                         currentMagic -= timeAreaManager_pause_consuming;
-                        timeAreaManager_pause.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                        timeAreaManager_pause.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
                     }
                     break;
                 case MyTimeState.SpeedUp:
                     if (currentMagic >= timeAreaManager_speedUp_consuming)
                     {
                         currentMagic -= timeAreaManager_speedUp_consuming;
-                        timeAreaManager_speedUp.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                        timeAreaManager_speedUp.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
                     }
                     break;
                 case MyTimeState.SlowDown:
                     if (currentMagic >= timeAreaManager_slowDown_consuming)
                     {
                         currentMagic -= timeAreaManager_slowDown_consuming;
-                        timeAreaManager_slowDown.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                        timeAreaManager_slowDown.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
                     }
                     break;
                 case MyTimeState.BackWard:
                     if (currentMagic >= timeAreaManager_backward_consuming)
                     {
                         currentMagic -= timeAreaManager_backward_consuming;
-                        timeAreaManager_backward.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+                        timeAreaManager_backward.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
                     }
                     break;
                 case MyTimeState.Normal:
@@ -143,21 +151,21 @@ public class MyShootController : MonoBehaviour
                     if (currentMagic >= timeBoxManager_pause_consuming)
                     {
                         currentMagic -= timeBoxManager_pause_consuming;
-                        timeBoxManager_pause.CreateTimeArea(hit.point, Quaternion.identity, hit.point);
+                        timeBoxManager_pause.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point);
                     }
                     break;
                 case MyTimeState.SpeedUp:
                     if (currentMagic >= timeBoxManager_speedUp_consuming)
                     {
                         currentMagic -= timeBoxManager_speedUp_consuming;
-                        timeBoxManager_speedUp.CreateTimeArea(hit.point, Quaternion.identity, hit.point);
+                        timeBoxManager_speedUp.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point);
                     }
                     break;
                 case MyTimeState.SlowDown:
                     if (currentMagic >= timeBoxManager_slowDown_consuming)
                     {
                         currentMagic -= timeBoxManager_slowDown_consuming;
-                        timeBoxManager_slowDown.CreateTimeArea(hit.point, Quaternion.identity, hit.point);
+                        timeBoxManager_slowDown.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point);
                     }
                     break;
             }
@@ -172,7 +180,7 @@ public class MyShootController : MonoBehaviour
         Physics.Raycast(ray, out hit, 10000f, LayerMask.GetMask("Plane"));
         if (hit.collider != null && hit.collider.tag == "Plane")
         {
-            timeBoxManager_bong.CreateTimeArea(transform.position, Quaternion.identity, hit.point);
+            timeBoxManager_bong.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
         }
     }
 

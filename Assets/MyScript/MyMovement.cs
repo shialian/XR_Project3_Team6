@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Chronos;
+using Mirror;
 
-public class MyMovement : MonoBehaviour
+public class MyMovement : NetworkBehaviour
 {
     public Transform leftHandController, rightHandController;
     public Transform head;
@@ -44,6 +45,10 @@ public class MyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isLocalPlayer)
+        {
+            this.enabled = false;
+        }
         switch (type)
         {
             case MyMovingType.Thumbstick:

@@ -9,7 +9,7 @@ public class PrefabPool<T> : IDisposable where T : UnityEngine.Component
         Prefab = prefab;
     }
     private PrefabPool() { }
-
+    
     public T Prefab { get; private set; }
     bool isDisposed = false;
     Queue<T> q;

@@ -20,7 +20,7 @@ public class Throw : MonoBehaviour
 
     private State state;
 
-    private void Start()
+    public void Start()
     {
         state = State.OnYawSelection;
         transform.rotation = Quaternion.identity;
@@ -112,5 +112,12 @@ public class Throw : MonoBehaviour
         wizzard.AddForce(selectionPointer.transform.localScale.z * selectionPointer.transform.forward * 2000f);
         wizzard.useGravity = true;
         this.enabled = false;
+    }
+
+    public void ResetAll()
+    {
+        selectionPointer.transform.rotation = Quaternion.identity;
+        selectionPointer.transform.localScale = Vector3.one;
+        selectionPointer.SetActive(false);
     }
 }

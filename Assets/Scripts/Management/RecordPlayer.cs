@@ -18,14 +18,12 @@ public class RecordPlayer : NetworkBehaviour
 
     private void Update()
     {
-        if (NetworkClient.ready && playerID == 0 && GameManager.singleton.localPlayerID != 0)
+        if (NetworkClient.ready && playerID == 0 && GameManager.singleton && GameManager.singleton.localPlayerID != 0)
         {
             playerID = GameManager.singleton.localPlayerID;
         }
-        Debug.LogError(playerID);
         if (updated == false && playerID != 0 && Physics.Raycast(ray, out hit, 10.0f))
         {
-            Debug.LogError(hit.transform);
             if (hit.transform == NetworkClient.localPlayer.transform)
             {
                 GameManager.singleton.UpdatePlayers(hit.transform.gameObject, playerID);

@@ -163,7 +163,7 @@ public class ConnectionManager : NetworkManager
         playerPrefab = spawnPrefabs[spawnID];
         base.OnServerAddPlayer(conn);
     }
-    
+
     /// <summary>
     /// Called on the server when a client disconnects.
     /// <para>This is called on the Server when a Client disconnects from the Server. Use an override to decide what should happen when a disconnection is detected.</para>

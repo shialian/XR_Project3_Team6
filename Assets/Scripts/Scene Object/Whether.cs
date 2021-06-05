@@ -76,7 +76,7 @@ public class Whether : MonoBehaviour
     private void StartAll()
     {
         globalClock.paused = false;
-        state = (State)Random.Range(0, 3);
+        state = (State)Random.Range(0, 5);
         accumulator = 0f;
     }
 

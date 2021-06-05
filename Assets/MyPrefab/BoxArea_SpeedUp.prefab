@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 1739537298632622882}
   - component: {fileID: 1739537298632622884}
   - component: {fileID: -1433112557661540393}
+  - component: {fileID: -4163482254898762894}
+  - component: {fileID: 8976649615004662725}
   m_Layer: 0
   m_Name: BoxArea_SpeedUp
   m_TagString: Magic
@@ -145,6 +147,8 @@ MonoBehaviour:
   effectType: 2
   effectTimeLength: 3
   bubbleVFX: {fileID: 100004, guid: 5f1a0937ae5d93e469a3c4b64b72601b, type: 3}
+  isBong: 0
+  isDestroyAfterTrigger: 0
 --- !u!114 &-1433112557661540393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,3 +166,41 @@ MonoBehaviour:
   largeScale: 2
   frequenceHZ: 6
   halfLife: 0.5
+--- !u!114 &-4163482254898762894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739537298632622883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
+--- !u!114 &8976649615004662725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739537298632622883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+  compressRotation: 0
+  interpolateScale: 1
+  syncScale: 1
