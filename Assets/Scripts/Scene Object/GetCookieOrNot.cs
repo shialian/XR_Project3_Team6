@@ -36,6 +36,7 @@ public class GetCookieOrNot : MonoBehaviour
         ResetWizzard(transform);
         ResetWarrior(transform.parent.parent);
         ResetGoal();
+        ResetForbidenBlock();
     }
 
     private void ResetWizzard(Transform wizzard)
@@ -44,6 +45,7 @@ public class GetCookieOrNot : MonoBehaviour
         wizzard.localPosition = new Vector3(-0.25f, 1.5f, 0.0f);
         rb.velocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezeAll;
+        wizzard.Find("PC Camera").GetComponent<MyShootController>().enabled = false;
     }
 
     private void ResetWarrior(Transform warrior)
@@ -52,11 +54,23 @@ public class GetCookieOrNot : MonoBehaviour
         warrior.rotation = startPosition[playerID - 1].rotation;
         warrior.GetComponent<Throw>().ResetAll();
         warrior.GetComponent<Throw>().enabled = false;
-        warrior.GetComponent<MyMovement>().enabled = true;
+        //warrior.GetComponent<MyMovement>().enabled = true;
+        foreach(Transform child in warrior.GetComponentsInChildren<Transform>())
+        {
+            child.gameObject.layer = LayerMask.NameToLayer("Default");
+        }
     }
 
     private void ResetGoal()
     {
         GameObject.Find("Goal").GetComponent<MovingGoal>().throwOn = false;
+    }
+
+    private void ResetForbidenBlock()
+    {
+        GameObject forbidenBlock = GameObject.Find("Forbiden Block");
+        forbidenBlock.GetComponent<ForbidenBlockTrigger>().blockOn = false;
+        forbidenBlock.SetActive(false);
+
     }
 }

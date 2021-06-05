@@ -21,8 +21,8 @@ TagManager:
   - 
   - IgnoreCollision
   - Plane
-  - 
-  - 
+  - SpecificIgnore
+  - ForbidenBlock
   - 
   - 
   - 

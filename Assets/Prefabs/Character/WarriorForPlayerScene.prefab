@@ -642,8 +642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1db517bdd64b4e93906b84a93663d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   leftHandController: {fileID: 5434194140573816306}
   rightHandController: {fileID: 5434194140573819382}
   head: {fileID: 5434194140573733922}
@@ -2927,10 +2925,20 @@ MonoBehaviour:
     type: 3}
   timeBoxManager_slowDown: {fileID: 8533856801048437350, guid: 42a3b8a71d91ad24f93761405ecc6245,
     type: 3}
+  timeAreaManager_pause_consuming: 0
+  timeAreaManager_speedUp_consuming: 0
+  timeAreaManager_slowDown_consuming: 0
+  timeAreaManager_backward_consuming: 0
+  timeBoxManager_pause_consuming: 0
+  timeBoxManager_speedUp_consuming: 0
+  timeBoxManager_slowDown_consuming: 0
   timeBoxManager_bong: {fileID: 3347271275065296438, guid: 340dad3d5f56c4a4cbaf6223edc356e8,
     type: 3}
   lockMouse: 1
   shootType: 2
+  maxMagic: 0
+  currentMagic: 0
+  magicRecoverySpeed: 0
 --- !u!114 &4077334721795807806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3675,6 +3683,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8052435071959779678, guid: 8c8a27d8980986242a254adb4a63e938,
         type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052435071959779678, guid: 8c8a27d8980986242a254adb4a63e938,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3732,6 +3745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052435072775131550, guid: 8c8a27d8980986242a254adb4a63e938,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c8a27d8980986242a254adb4a63e938, type: 3}

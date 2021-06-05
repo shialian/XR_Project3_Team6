@@ -10,7 +10,6 @@ public class MovingGoal : MonoBehaviour
     {
         if(collision.transform.tag == "Player" && throwOn == false)
         {
-            Debug.LogError("here!");
             Transform warrior = collision.transform;
             if (warrior.GetComponent<Movement>() != null)
             {
