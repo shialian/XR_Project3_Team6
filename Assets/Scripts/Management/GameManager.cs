@@ -60,7 +60,10 @@ public class GameManager : NetworkBehaviour
 
     private bool PlayerThrowed()
     {
-        return throwed[0] && throwed[1];
+        Debug.LogError("1: " + throwed[0]);
+        Debug.LogError("2: " + throwed[1]);
+        Debug.LogError("1&2: " + ((throwed[0] == true) && (throwed[1] == true)));
+        return (throwed[0] == true) && (throwed[1] == true);
     }
 
     [Command(requiresAuthority = false)]
@@ -100,7 +103,8 @@ public class GameManager : NetworkBehaviour
 
     private void ResetThrowed()
     {
-        throwed[0] = throwed[1] = false;
+        throwed[0] = false;
+        throwed[1] = false;
     }
 
     public void LoadScene(string sceneName, int spawnID)
