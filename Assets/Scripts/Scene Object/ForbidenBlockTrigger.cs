@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class ForbidenBlockTrigger : MonoBehaviour
+public class ForbidenBlockTrigger : NetworkBehaviour
 {
     public GameObject forbidenBlock;
 
@@ -26,5 +27,19 @@ public class ForbidenBlockTrigger : MonoBehaviour
             }
             blockOn = true;
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void ResetBlock()
+    {
+        Debug.LogError("reset");
+        ResetClientBlock();
+    }
+
+    [ClientRpc]
+    public void ResetClientBlock()
+    {
+        blockOn = false;
+        forbidenBlock.SetActive(false);
     }
 }

@@ -1586,7 +1586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123955776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 0.2, z: 10}
+  m_LocalPosition: {x: 4.5, y: 0.04, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1489342543}
@@ -7133,7 +7133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &499194718
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17846,6 +17846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1db517bdd64b4e93906b84a93663d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   leftHandController: {fileID: 1321920185}
   rightHandController: {fileID: 1321920184}
   head: {fileID: 1321920186}
@@ -17884,6 +17886,7 @@ MonoBehaviour:
   yawRotateAngle: 1
   pitchRotateAngle: -1
   forceScale: -0.01
+  state: 0
 --- !u!4 &1358676752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4963048518039158, guid: 9e15540f61291fc4daaadde284334e9a,
@@ -18600,6 +18603,7 @@ GameObject:
   - component: {fileID: 1416434520}
   - component: {fileID: 1416434519}
   - component: {fileID: 1416434523}
+  - component: {fileID: 1416434524}
   m_Layer: 0
   m_Name: Clider_stair
   m_TagString: Untagged
@@ -18693,7 +18697,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88049d91c0d0e244c849351aabc45ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   forbidenBlock: {fileID: 1724696517}
+  blockOn: 0
+--- !u!114 &1416434524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416434518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 1125923363
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &1430114656
 GameObject:
   m_ObjectHideFlags: 0
@@ -21986,7 +22010,7 @@ GameObject:
   - component: {fileID: 1724696518}
   - component: {fileID: 1724696519}
   m_Layer: 11
-  m_Name: Forbiden Block
+  m_Name: Forbidden Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25254,6 +25278,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1635544185}
     m_Modifications:
+    - target: {fileID: 3307092706606843940, guid: ea2c310fe640cf54fb895571ab65711d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 3307092706875450580, guid: ea2c310fe640cf54fb895571ab65711d,
         type: 3}
       propertyPath: m_RootOrder
@@ -25313,6 +25342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: goal_circle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307092708477636457, guid: ea2c310fe640cf54fb895571ab65711d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea2c310fe640cf54fb895571ab65711d, type: 3}
@@ -28422,6 +28456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1db517bdd64b4e93906b84a93663d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   leftHandController: {fileID: 308696566}
   rightHandController: {fileID: 1209916410}
   head: {fileID: 4052603}
@@ -28444,6 +28480,7 @@ MonoBehaviour:
   yawRotateAngle: 1
   pitchRotateAngle: -1
   forceScale: -0.01
+  state: 0
 --- !u!1 &2866935631261088714
 GameObject:
   m_ObjectHideFlags: 0
@@ -30623,6 +30660,7 @@ MonoBehaviour:
   yawRotateAngle: 1
   pitchRotateAngle: -1
   forceScale: -0.01
+  state: 0
 --- !u!114 &5963490235155314345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30635,6 +30673,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1db517bdd64b4e93906b84a93663d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   leftHandController: {fileID: 1321920185}
   rightHandController: {fileID: 1321920184}
   head: {fileID: 1321920186}

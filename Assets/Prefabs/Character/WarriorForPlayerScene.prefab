@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: -8907439493553330078}
   - component: {fileID: -238205869397524985}
   - component: {fileID: 7867932284658785760}
+  - component: {fileID: 2484059851484377903}
   m_Layer: 0
   m_Name: WarriorForPlayerScene
   m_TagString: Player
@@ -642,6 +643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1db517bdd64b4e93906b84a93663d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   leftHandController: {fileID: 5434194140573816306}
   rightHandController: {fileID: 5434194140573819382}
   head: {fileID: 5434194140573733922}
@@ -664,6 +667,7 @@ MonoBehaviour:
   yawRotateAngle: 1
   pitchRotateAngle: -1
   forceScale: -0.01
+  state: 0
 --- !u!114 &-3065430179516546485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,6 +759,28 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   camera: {fileID: 4077334721430619530}
+--- !u!114 &2484059851484377903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848921173637045936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734b48bea0b204338958ee3d885e11f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+  compressRotation: 0
+  interpolateScale: 1
+  syncScale: 1
+  target: {fileID: 5434194140187239193}
 --- !u!1 &1849008559350433468
 GameObject:
   m_ObjectHideFlags: 0
@@ -3512,6 +3538,23 @@ CapsuleCollider:
   m_Height: 2.015022
   m_Direction: 1
   m_Center: {x: 0, y: 0.8765807, z: 0}
+--- !u!114 &724274141955405049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434194140186886009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!114 &5434194140228616624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3524,6 +3567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd3972698938494784544f0ae0c78cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   startPosition: []
 --- !u!1001 &5434194139179958735
 PrefabInstance:
@@ -3960,15 +4005,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
---- !u!4 &5434194140573733922 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: 126d619cf4daa52469682f85c1378b4a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5434194140574125728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5434194140573733924 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5434194140574125728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5434194140573733922 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 126d619cf4daa52469682f85c1378b4a,
     type: 3}
   m_PrefabInstance: {fileID: 5434194140574125728}
   m_PrefabAsset: {fileID: 0}

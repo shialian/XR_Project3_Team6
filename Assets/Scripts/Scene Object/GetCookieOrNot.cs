@@ -29,14 +29,17 @@ public class GetCookieOrNot : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Cookie")
+        if (collision.transform.tag == "Cookie" || collision.transform.tag == "Water")
         {
-            GameManager.singleton.GetTheCookie(playerID);
+            if (collision.collider.tag == "Cookie")
+            {
+                GameManager.singleton.GetTheCookie(playerID);
+            }
+            ResetWizzard(transform);
+            ResetWarrior(transform.parent.parent);
+            ResetGoal();
+            ResetForbiddenBlock();
         }
-        ResetWizzard(transform);
-        ResetWarrior(transform.parent.parent);
-        ResetGoal();
-        ResetForbidenBlock();
     }
 
     private void ResetWizzard(Transform wizzard)
@@ -66,11 +69,10 @@ public class GetCookieOrNot : MonoBehaviour
         GameObject.Find("Goal").GetComponent<MovingGoal>().throwOn = false;
     }
 
-    private void ResetForbidenBlock()
+    public void ResetForbiddenBlock()
     {
-        GameObject forbidenBlock = GameObject.Find("Forbiden Block");
-        forbidenBlock.GetComponent<ForbidenBlockTrigger>().blockOn = false;
-        forbidenBlock.SetActive(false);
-
+        Debug.LogError("Reset");
+        GameObject stair = GameObject.Find("Clider_stair");
+        stair.GetComponent<ForbidenBlockTrigger>().ResetBlock();
     }
 }

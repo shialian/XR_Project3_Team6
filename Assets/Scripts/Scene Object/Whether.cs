@@ -62,8 +62,8 @@ public class Whether : MonoBehaviour
                 Invoke("StartAll", 1.0f + pauseTime);
                 break;
             case State.Reverse:
-                Invoke("ReverseAll", 1.0f);
-                Invoke("RecoverAll", 1.0f + reverseTime);
+                ReverseAll();
+                Invoke("RecoverAll", reverseTime);
                 break;
         }
     }

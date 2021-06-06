@@ -10,19 +10,23 @@ public class MovingGoal : MonoBehaviour
     {
         if(collision.transform.tag == "Player" && throwOn == false)
         {
-            Transform warrior = collision.transform;
-            if (warrior.GetComponent<Movement>() != null)
+            int playerID = GameManager.singleton.localPlayerID;
+            if (collision.gameObject == GameManager.singleton.players[playerID - 1])
             {
-                warrior.GetComponent<Movement>().enabled = false;
+                Transform warrior = collision.transform;
+                if (warrior.GetComponent<Movement>() != null)
+                {
+                    warrior.GetComponent<Movement>().enabled = false;
+                }
+                if (warrior.GetComponent<MyMovement>() != null)
+                {
+                    warrior.GetComponent<MyMovement>().enabled = false;
+                }
+                warrior.GetComponent<Throw>().enabled = true;
+                warrior.GetComponent<Throw>().Start();
+                warrior.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                throwOn = true;
             }
-            if (warrior.GetComponent<MyMovement>() != null)
-            {
-                warrior.GetComponent<MyMovement>().enabled = false;
-            }
-            warrior.GetComponent<Throw>().enabled = true;
-            warrior.GetComponent<Throw>().Start();
-            warrior.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-            throwOn = true;
         }
     }
 }

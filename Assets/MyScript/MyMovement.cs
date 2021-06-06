@@ -49,7 +49,6 @@ public class MyMovement : NetworkBehaviour
         {
             this.enabled = false;
         }
-        Debug.LogError(keyboardInput);
         switch (type)
         {
             case MyMovingType.Thumbstick:
