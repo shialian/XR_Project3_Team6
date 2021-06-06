@@ -759,7 +759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  cam: {fileID: 0}
+  cam: {fileID: 4077334721430619530}
 --- !u!114 &2484059851484377903
 MonoBehaviour:
   m_ObjectHideFlags: 0
