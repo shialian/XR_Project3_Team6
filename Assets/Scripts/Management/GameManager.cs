@@ -24,7 +24,7 @@ public class GameManager : NetworkBehaviour
             getCookies.Add(0);
             getCookies.Add(0);
             throwed.Add(false);
-            throwed.Add(false);
+            throwed.Add(true);
         }
         DontDestroyOnLoad(this);
     }

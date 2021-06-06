@@ -116,7 +116,7 @@ public class Throw : MonoBehaviour
         wizzard.AddForce(selectionPointer.transform.localScale.z * selectionPointer.transform.forward * 2000f);
         wizzard.useGravity = true;
         state = State.Throwed;
-        GameManager.singleton.HasThrowed(playerID);
+        //GameManager.singleton.HasThrowed(playerID);
         this.enabled = false;
     }
 

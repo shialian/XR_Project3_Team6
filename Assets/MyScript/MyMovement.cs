@@ -20,6 +20,8 @@ public class MyMovement : NetworkBehaviour
     private Vector3 currLeftControllerPosition, currRightControllerPosition;
     private LocalClock localClock;
 
+    public float velocity;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -69,13 +71,19 @@ public class MyMovement : NetworkBehaviour
                     float animForward = leftControllerSwing + rightControllerSwing;
                     animForward = Mathf.Clamp01(animForward);
                     anim.SetFloat("Forward", animForward);
-                    transform.position += forward * timeLine.fixedDeltaTime * (speedFactor * (leftControllerSwing + rightControllerSwing));
+                    velocity = (speedFactor * (leftControllerSwing + rightControllerSwing));
+                    transform.position += forward * timeLine.fixedDeltaTime * velocity;
+                }
+                else
+                {
+                    velocity = 0f;
                 }
                 break;
             case MyMovingType.Keyboard:
                 anim.SetFloat("Forward", keyboardInput.y);
                 anim.SetFloat("Turn", keyboardInput.x);
-                transform.position += new Vector3(keyboardInput.x, 0.0f, keyboardInput.y) * speedFactor * timeLine.fixedDeltaTime * localClock.localTimeScale;
+                velocity = speedFactor;
+                transform.position += new Vector3(keyboardInput.x, 0.0f, keyboardInput.y) * speedFactor * timeLine.fixedDeltaTime;
                 break;
         }
     }

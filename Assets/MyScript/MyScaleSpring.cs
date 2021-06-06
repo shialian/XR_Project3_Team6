@@ -97,7 +97,7 @@ public class MyScaleSpring : MonoBehaviour
     //private static readonly float kInterval = 2.0f;
    //private static readonly float kSmallScale = 0.6f;
     //private static readonly float kLargeScale = 2.0f;
-    private static readonly float kMoveDistance = 30.0f;
+    //private static readonly float kMoveDistance = 30.0f;
 
     private Vector3Spring m_spring;
     private float m_targetScale = 0.0f;

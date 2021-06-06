@@ -39,6 +39,7 @@ public class GetCookieOrNot : MonoBehaviour
             ResetWarrior(transform.parent.parent);
             ResetGoal();
             ResetForbiddenBlock();
+            GameManager.singleton.HasThrowed(playerID);
         }
     }
 

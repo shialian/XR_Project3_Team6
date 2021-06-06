@@ -20,7 +20,7 @@ public class MyTimeAreaManager : MonoBehaviour
         timeArea.transform.position = new Vector3(position.x, 1f, position.z);
         timeArea.transform.rotation = rotation;
         timeArea.transform.parent = transform;
-        timeArea.Initialize(target);
+        //timeArea.Initialize(target);
     }
 
     public void DisableTimeArea(TimeArea timeArea)

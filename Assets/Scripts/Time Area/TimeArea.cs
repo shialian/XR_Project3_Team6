@@ -15,14 +15,15 @@ public class TimeArea : MonoBehaviour
     public float speedFactor = 1f;
     public GameObject bubbleVFX;
     public bool isBox = false;
+    public GameObject warrior;
 
     private State state;
     private Vector3 targetPosition;
     private TimeAreaManager manager;
     private float currentTime;
-
     private MyScaleSpring myScaleSpring;
 
+    private float speed;
 
     private void Awake()
     {
@@ -32,7 +33,6 @@ public class TimeArea : MonoBehaviour
     private void Start()
     {
         manager = transform.parent.GetComponent<TimeAreaManager>();
-
         myScaleSpring = GetComponent<MyScaleSpring>();
     }
 
@@ -42,10 +42,10 @@ public class TimeArea : MonoBehaviour
         {
             case State.Initialized:
                 if (isBox == false) {
-                    if (Vector3.Distance(transform.position, targetPosition) > 0.2f)
+                    if (Vector3.Distance(transform.position, targetPosition) > 0.1f * speed)
                     {
                         Vector3 direction = (targetPosition - transform.position).normalized;
-                        transform.position += speedFactor * direction * Time.fixedDeltaTime;
+                        transform.position += speed * direction * Time.fixedDeltaTime;
                     }
                     else
                     {
@@ -75,11 +75,13 @@ public class TimeArea : MonoBehaviour
         }
     }
 
-    public void Initialize(Vector3 target)
+    public void Initialize(Vector3 target, float velocity)
     {
         target.y = transform.position.y;
         targetPosition = target;
         currentTime = survivalTime;
+        speed = 2f * speedFactor + velocity;
+
         state = State.Initialized;
     }
 

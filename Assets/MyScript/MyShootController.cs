@@ -30,6 +30,8 @@ public class MyShootController : MonoBehaviour
     public float currentMagic;
     public float magicRecoverySpeed;
 
+    private MyMovement movement;
+
     private void Start()
     {
         if (lockMouse)
@@ -46,6 +48,8 @@ public class MyShootController : MonoBehaviour
         timeBoxManager_speedUp = GameObject.Find("Time Area Pool (SpeedUp)").GetComponent<TimeAreaManager>();
         timeBoxManager_slowDown = GameObject.Find("Time Area Pool (SlowDown)").GetComponent<TimeAreaManager>();
         timeBoxManager_bong = GameObject.Find("Time Trigger Pool (Bong)").GetComponent<TimeAreaManager>();
+        movement = transform.parent.parent.parent.GetComponent<MyMovement>();
+        
     }
 
     private void Update()
@@ -102,33 +106,34 @@ public class MyShootController : MonoBehaviour
         Physics.Raycast(ray, out hit, 10000f,  LayerMask.GetMask("Plane"));
         if (hit.collider != null && hit.collider.tag == "Plane")
         {
+            float velocity = movement.velocity;
             switch (shootType)
             {
                 case MyTimeState.Pause:
                     if (currentMagic >= timeAreaManager_pause_consuming) {
                         currentMagic -= timeAreaManager_pause_consuming;
-                        timeAreaManager_pause.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
+                        timeAreaManager_pause.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
                     }
                     break;
                 case MyTimeState.SpeedUp:
                     if (currentMagic >= timeAreaManager_speedUp_consuming)
                     {
                         currentMagic -= timeAreaManager_speedUp_consuming;
-                        timeAreaManager_speedUp.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
+                        timeAreaManager_speedUp.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
                     }
                     break;
                 case MyTimeState.SlowDown:
                     if (currentMagic >= timeAreaManager_slowDown_consuming)
                     {
                         currentMagic -= timeAreaManager_slowDown_consuming;
-                        timeAreaManager_slowDown.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
+                        timeAreaManager_slowDown.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
                     }
                     break;
                 case MyTimeState.BackWard:
                     if (currentMagic >= timeAreaManager_backward_consuming)
                     {
                         currentMagic -= timeAreaManager_backward_consuming;
-                        timeAreaManager_backward.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
+                        timeAreaManager_backward.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
                     }
                     break;
                 case MyTimeState.Normal:
@@ -145,27 +150,28 @@ public class MyShootController : MonoBehaviour
         Physics.Raycast(ray, out hit, 10000f, LayerMask.GetMask("Plane"));
         if (hit.collider != null && hit.collider.tag == "Plane")
         {
+            float velocity = movement.velocity;
             switch (shootType)
             {
                 case MyTimeState.Pause:
                     if (currentMagic >= timeBoxManager_pause_consuming)
                     {
                         currentMagic -= timeBoxManager_pause_consuming;
-                        timeBoxManager_pause.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point);
+                        timeBoxManager_pause.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point, velocity);
                     }
                     break;
                 case MyTimeState.SpeedUp:
                     if (currentMagic >= timeBoxManager_speedUp_consuming)
                     {
                         currentMagic -= timeBoxManager_speedUp_consuming;
-                        timeBoxManager_speedUp.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point);
+                        timeBoxManager_speedUp.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point, velocity);
                     }
                     break;
                 case MyTimeState.SlowDown:
                     if (currentMagic >= timeBoxManager_slowDown_consuming)
                     {
                         currentMagic -= timeBoxManager_slowDown_consuming;
-                        timeBoxManager_slowDown.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point);
+                        timeBoxManager_slowDown.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point, velocity);
                     }
                     break;
             }
@@ -180,7 +186,8 @@ public class MyShootController : MonoBehaviour
         Physics.Raycast(ray, out hit, 10000f, LayerMask.GetMask("Plane"));
         if (hit.collider != null && hit.collider.tag == "Plane")
         {
-            timeBoxManager_bong.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
+            float velocity = movement.velocity;
+            timeBoxManager_bong.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
         }
     }
 

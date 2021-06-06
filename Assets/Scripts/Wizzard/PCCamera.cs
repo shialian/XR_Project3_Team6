@@ -5,13 +5,13 @@ using Mirror;
 
 public class PCCamera : NetworkBehaviour
 {
-    public GameObject camera;
+    public GameObject cam;
 
     private void Update()
     {
         if(!isLocalPlayer)
         {
-            camera.SetActive(false);
+            cam.SetActive(false);
             this.enabled = false;
         }
     }

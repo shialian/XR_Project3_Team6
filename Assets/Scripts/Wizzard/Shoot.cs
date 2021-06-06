@@ -30,7 +30,7 @@ public class Shoot : MonoBehaviour
         Physics.Raycast(ray, out hit, 10000f);
         if(hit.collider != null && hit.collider.tag == "Plane")
         {
-            timeAreaManager.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
+            //timeAreaManager.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point);
         }
     }
 }
