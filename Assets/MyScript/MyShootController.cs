@@ -5,18 +5,12 @@ using UnityEngine;
 public class MyShootController : MonoBehaviour
 {
     public TimeAreaManager timeAreaManager_pause;
-    public TimeAreaManager timeAreaManager_speedUp;
-    public TimeAreaManager timeAreaManager_slowDown;
     public TimeAreaManager timeAreaManager_backward;
-    public TimeAreaManager timeBoxManager_pause;
     public TimeAreaManager timeBoxManager_speedUp;
     public TimeAreaManager timeBoxManager_slowDown;
 
     public float timeAreaManager_pause_consuming;
-    public float timeAreaManager_speedUp_consuming;
-    public float timeAreaManager_slowDown_consuming;
     public float timeAreaManager_backward_consuming;
-    public float timeBoxManager_pause_consuming;
     public float timeBoxManager_speedUp_consuming;
     public float timeBoxManager_slowDown_consuming;
 
@@ -41,10 +35,7 @@ public class MyShootController : MonoBehaviour
 
         currentMagic = maxMagic;
         timeAreaManager_pause = GameObject.Find("Time Trigger Pool (Stop)").GetComponent<TimeAreaManager>();
-        timeAreaManager_speedUp = GameObject.Find("Time Trigger Pool (SpeedUp)").GetComponent<TimeAreaManager>();
-        timeAreaManager_slowDown = GameObject.Find("Time Trigger Pool (SlowDown)").GetComponent<TimeAreaManager>();
         timeAreaManager_backward = GameObject.Find("Time Trigger Pool (Backword)").GetComponent<TimeAreaManager>();
-        timeBoxManager_pause = GameObject.Find("Time Area Pool (Pause)").GetComponent<TimeAreaManager>();
         timeBoxManager_speedUp = GameObject.Find("Time Area Pool (SpeedUp)").GetComponent<TimeAreaManager>();
         timeBoxManager_slowDown = GameObject.Find("Time Area Pool (SlowDown)").GetComponent<TimeAreaManager>();
         timeBoxManager_bong = GameObject.Find("Time Trigger Pool (Bong)").GetComponent<TimeAreaManager>();
@@ -54,19 +45,14 @@ public class MyShootController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            ShootTheSkill();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.LeftShift))
-        {
-            SetTheSkill();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse1) && Input.GetKey(KeyCode.LeftShift))
-        {
-            SetBong();
+            if (shootType == MyTimeState.Pause || shootType == MyTimeState.BackWard)
+                ShootTheSkill();
+            else if (shootType == MyTimeState.SlowDown || shootType == MyTimeState.SpeedUp)
+                SetTheSkill();
+            else if (shootType == MyTimeState.Normal)
+                SetBong();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -115,6 +101,7 @@ public class MyShootController : MonoBehaviour
                         timeAreaManager_pause.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
                     }
                     break;
+                /*
                 case MyTimeState.SpeedUp:
                     if (currentMagic >= timeAreaManager_speedUp_consuming)
                     {
@@ -129,6 +116,7 @@ public class MyShootController : MonoBehaviour
                         timeAreaManager_slowDown.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
                     }
                     break;
+                */
                 case MyTimeState.BackWard:
                     if (currentMagic >= timeAreaManager_backward_consuming)
                     {
@@ -152,7 +140,8 @@ public class MyShootController : MonoBehaviour
         {
             float velocity = movement.velocity;
             switch (shootType)
-            {
+            {   
+                /*
                 case MyTimeState.Pause:
                     if (currentMagic >= timeBoxManager_pause_consuming)
                     {
@@ -160,6 +149,7 @@ public class MyShootController : MonoBehaviour
                         timeBoxManager_pause.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point, velocity);
                     }
                     break;
+                */
                 case MyTimeState.SpeedUp:
                     if (currentMagic >= timeBoxManager_speedUp_consuming)
                     {

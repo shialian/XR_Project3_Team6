@@ -16,7 +16,7 @@ public class TextBlink : MonoBehaviour
         showColor = myText.color;
         hideColor = showColor;
         hideColor.a = 0f;
-        print(hideColor);
+        
     }
 
     // Update is called once per frame
