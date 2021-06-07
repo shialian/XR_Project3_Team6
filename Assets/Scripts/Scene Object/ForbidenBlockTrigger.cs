@@ -7,7 +7,6 @@ public class ForbidenBlockTrigger : NetworkBehaviour
 {
     public GameObject forbiddenBlock;
 
-    [SyncVar]
     public bool blockOn = false;
 
     private void Start()
@@ -31,19 +30,7 @@ public class ForbidenBlockTrigger : NetworkBehaviour
             {
                 child.gameObject.layer = LayerMask.NameToLayer("SpecificIgnore");
             }
-            SetBlockOn();
+            blockOn = true;
         }
-    }
-
-    [Command(requiresAuthority = false)]
-    public void SetBlockOn()
-    {
-        blockOn = true;
-    }
-
-    [Command(requiresAuthority = false)]
-    public void CloseBlock()
-    {
-        blockOn = false;
     }
 }
