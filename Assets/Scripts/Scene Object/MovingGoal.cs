@@ -14,17 +14,12 @@ public class MovingGoal : MonoBehaviour
             if (collision.gameObject == GameManager.singleton.players[playerID - 1])
             {
                 Transform warrior = collision.transform;
-                if (warrior.GetComponent<Movement>() != null)
-                {
-                    warrior.GetComponent<Movement>().enabled = false;
-                }
-                if (warrior.GetComponent<MyMovement>() != null)
-                {
-                    warrior.GetComponent<MyMovement>().enabled = false;
-                }
+                warrior.GetComponent<MyMovement>().ResetAnimator();
+                warrior.GetComponent<MyMovement>().enabled = false;
                 warrior.GetComponent<Throw>().enabled = true;
                 warrior.GetComponent<Throw>().Start();
                 warrior.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                warrior.Find("Wagon").Find("Wizzard").GetComponent<GetCookieOrNot>().enabled = true;
                 throwOn = true;
             }
         }

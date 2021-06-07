@@ -7,11 +7,13 @@ public class GetCookieOrNot : MonoBehaviour
     public Transform[] startPosition;
 
     private int playerID;
+    private Transform warrior;
 
     private void Awake()
     {
         playerID = 0;
         startPosition = new Transform[2];
+        warrior = transform.parent.parent;
     }
 
     private void Update()
@@ -29,18 +31,15 @@ public class GetCookieOrNot : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Cookie" || collision.transform.tag == "Water")
+        if (collision.collider.tag == "Cookie")
         {
-            if (collision.collider.tag == "Cookie")
-            {
-                GameManager.singleton.GetTheCookie(playerID);
-            }
-            ResetWizzard(transform);
-            ResetWarrior(transform.parent.parent);
-            ResetGoal();
-            ResetForbiddenBlock();
-            GameManager.singleton.HasThrowed(playerID);
+            GameManager.singleton.GetTheCookie(playerID);
         }
+        ResetWizzard(transform);
+        ResetWarrior(warrior);
+        ResetGoal();
+        ResetForbiddenBlock();
+        GameManager.singleton.HasThrowed(playerID);
     }
 
     private void ResetWizzard(Transform wizzard)
@@ -58,7 +57,6 @@ public class GetCookieOrNot : MonoBehaviour
         warrior.rotation = startPosition[playerID - 1].rotation;
         warrior.GetComponent<Throw>().ResetAll();
         warrior.GetComponent<Throw>().enabled = false;
-        //warrior.GetComponent<MyMovement>().enabled = true;
         foreach(Transform child in warrior.GetComponentsInChildren<Transform>())
         {
             child.gameObject.layer = LayerMask.NameToLayer("Default");
@@ -72,8 +70,7 @@ public class GetCookieOrNot : MonoBehaviour
 
     public void ResetForbiddenBlock()
     {
-        Debug.LogError("Reset");
         GameObject stair = GameObject.Find("Clider_stair");
-        stair.GetComponent<ForbidenBlockTrigger>().ResetBlock();
+        stair.GetComponent<ForbidenBlockTrigger>().CloseBlock();
     }
 }

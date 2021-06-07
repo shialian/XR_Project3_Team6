@@ -10,6 +10,8 @@ public class GameManager : NetworkBehaviour
 
     [SyncVar]
     public int numPlayer = 0;
+    [SyncVar]
+    public bool playerGetCookie = false;
     public int round = 1;
     public int localPlayerID;
     public SyncList<bool> throwed = new SyncList<bool>();
@@ -40,10 +42,11 @@ public class GameManager : NetworkBehaviour
             SetLocalPlayerID();
             NewPlayerAdd();
         }
-        if(isServer && PlayerThrowed())
+        if(isServer && (PlayerThrowed() || playerGetCookie))
         {
             NewRoundStart();
             ResetThrowed();
+            ResetGetCookie();
         }
     }
 
@@ -101,10 +104,17 @@ public class GameManager : NetworkBehaviour
         throwed[id - 1] = true;
     }
 
-    private void ResetThrowed()
+    [Command(requiresAuthority = false)]
+    public void ResetThrowed()
     {
         throwed[0] = false;
         throwed[1] = false;
+    }
+
+    [Command(requiresAuthority =  false)]
+    public void ResetGetCookie()
+    {
+        playerGetCookie = false;
     }
 
     public void LoadScene(string sceneName, int spawnID)

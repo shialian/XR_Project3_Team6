@@ -5,41 +5,45 @@ using Mirror;
 
 public class ForbidenBlockTrigger : NetworkBehaviour
 {
-    public GameObject forbidenBlock;
+    public GameObject forbiddenBlock;
 
-    [HideInInspector]
-    public bool blockOn;
+    [SyncVar]
+    public bool blockOn = false;
 
     private void Start()
     {
-        forbidenBlock.SetActive(false);
-        blockOn = false;
+        forbiddenBlock.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (forbiddenBlock.activeSelf != blockOn)
+        {
+            forbiddenBlock.SetActive(blockOn);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.tag == "Player" && blockOn == false)
         {
-            forbidenBlock.SetActive(true);
-            foreach(Transform child in collision.transform.GetComponentsInChildren<Transform>())
+            foreach (Transform child in collision.transform.GetComponentsInChildren<Transform>())
             {
                 child.gameObject.layer = LayerMask.NameToLayer("SpecificIgnore");
             }
-            blockOn = true;
+            SetBlockOn();
         }
     }
 
     [Command(requiresAuthority = false)]
-    public void ResetBlock()
+    public void SetBlockOn()
     {
-        Debug.LogError("reset");
-        ResetClientBlock();
+        blockOn = true;
     }
 
-    [ClientRpc]
-    public void ResetClientBlock()
+    [Command(requiresAuthority = false)]
+    public void CloseBlock()
     {
         blockOn = false;
-        forbidenBlock.SetActive(false);
     }
 }

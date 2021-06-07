@@ -87,6 +87,12 @@ public class MyMovement : NetworkBehaviour
                 break;
         }
     }
+
+    public void ResetAnimator()
+    {
+        anim.SetFloat("Forward", 0f);
+        anim.SetFloat("Turn", 0f);
+    }
 }
 
 public enum MyMovingType

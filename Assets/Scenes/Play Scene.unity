@@ -18652,7 +18652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  forbidenBlock: {fileID: 1724696517}
+  forbiddenBlock: {fileID: 1724696517}
   blockOn: 0
 --- !u!114 &1416434524
 MonoBehaviour:
