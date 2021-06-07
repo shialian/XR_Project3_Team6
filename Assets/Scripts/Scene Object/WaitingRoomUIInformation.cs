@@ -19,12 +19,17 @@ public class WaitingRoomUIInformation : NetworkBehaviour
     private int playerID;
     private bool sceneIsLoaded;
 
+    private WaitingRoomBGM SoundPlayer;
+
     private void Start()
     {
         playerOneReadyUI.SetActive(false);
         playerTwoReadyUI.SetActive(false);
         sceneIsLoaded = false;
         playerID = 0;
+
+        SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<WaitingRoomBGM>();
+
     }
 
     private void Update()
@@ -46,6 +51,7 @@ public class WaitingRoomUIInformation : NetworkBehaviour
         if (AllPlayerAreReady()) {
             hint.SetActive(false);
             countdown.gameObject.SetActive(true);
+            SoundPlayer.ReadySound();
             if (isServer && countdown.timer <= 0 && sceneIsLoaded == false)
             {
                 sceneIsLoaded = true;
@@ -54,6 +60,7 @@ public class WaitingRoomUIInformation : NetworkBehaviour
         }
         else
         {
+            SoundPlayer.Stop();
             hint.SetActive(true);
             countdown.gameObject.SetActive(false);
             countdown.timer = countdown.countdown;
@@ -77,18 +84,22 @@ public class WaitingRoomUIInformation : NetworkBehaviour
     {
         if (playerOneReady)
         {
+            SoundPlayer.ReadySound();
             playerOneReadyUI.SetActive(true);
         }
         else
         {
+            SoundPlayer.CancelReadySound();
             playerOneReadyUI.SetActive(false);
         }
         if (playerTwoReady)
         {
+            SoundPlayer.ReadySound();
             playerTwoReadyUI.SetActive(true);
         }
         else
         {
+            SoundPlayer.CancelReadySound();
             playerTwoReadyUI.SetActive(false);
         }
     }

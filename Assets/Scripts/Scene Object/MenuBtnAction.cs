@@ -13,8 +13,13 @@ public class MenuBtnAction : MonoBehaviour
     public GameObject TTS_btn; // TTS = touch to start
     public GameObject TTS_text;
 
+   
+    private StartUIBGM SoundPlayer;
+
     public void clickStart()
     {
+        //Debug.Log("Start");
+        SoundPlayer.PlayBtnClickSound();
         SceneManager.LoadScene(1);
     }
     public void clickExit()
@@ -37,11 +42,13 @@ public class MenuBtnAction : MonoBehaviour
 
     void Start()
     {
-        
+    
+    SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<StartUIBGM>();
+       
     }
 
-    // Update is called once per frame
-    void Update()
+// Update is called once per frame
+void Update()
     {
 
     }
