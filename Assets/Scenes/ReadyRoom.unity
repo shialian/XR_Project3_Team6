@@ -4328,7 +4328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Host
+  m_Text: "\u5275\u5EFA\u623F\u9593"
 --- !u!224 &7945945095486037186
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4483,7 +4483,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Client
+  m_Text: "\u5EFA\u7ACB\u623F\u9593"
 --- !u!224 &7945945095576283111
 RectTransform:
   m_ObjectHideFlags: 0

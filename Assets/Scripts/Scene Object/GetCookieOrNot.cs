@@ -31,6 +31,7 @@ public class GetCookieOrNot : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.collider.tag == "Cookie")
         {
             GameManager.singleton.GetTheCookie(playerID);
@@ -71,6 +72,6 @@ public class GetCookieOrNot : MonoBehaviour
     public void ResetForbiddenBlock()
     {
         GameObject stair = GameObject.Find("Clider_stair");
-        stair.GetComponent<ForbidenBlockTrigger>().CloseBlock();
+        stair.GetComponent<ForbidenBlockTrigger>().blockOn = false;
     }
 }

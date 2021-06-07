@@ -17,7 +17,7 @@ public class WaitingRoomBGM : MonoBehaviour
 
     public void ReadySound()
     {
-        audioSource.PlayOneShot(Ready, 0.7F);
+        audioSource.PlayOneShot(Ready);
 
     }
 
@@ -29,7 +29,7 @@ public class WaitingRoomBGM : MonoBehaviour
 
     public void CancelReadySound()
     {
-        audioSource.PlayOneShot(CancelReady, 0.7F);
+        audioSource.PlayOneShot(CancelReady);
 
 
     }
@@ -37,7 +37,7 @@ public class WaitingRoomBGM : MonoBehaviour
     public void CountDownSound()
     {
 
-        audioSource.PlayOneShot(CountDown, 0.7F);
+        audioSource.PlayOneShot(CountDown);
 
     }
 }

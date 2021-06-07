@@ -17,6 +17,7 @@ public class GameManager : NetworkBehaviour
     public SyncList<bool> throwed = new SyncList<bool>();
     public SyncList<GameObject> players = new SyncList<GameObject>();
     public SyncList<int> getCookies = new SyncList<int>();
+    public SyncList<int> bongs = new SyncList<int>();
 
     private void Start()
     {
@@ -25,6 +26,8 @@ public class GameManager : NetworkBehaviour
         {
             getCookies.Add(0);
             getCookies.Add(0);
+            bongs.Add(1);
+            bongs.Add(1);
             throwed.Add(false);
             throwed.Add(false);
         }
@@ -63,9 +66,6 @@ public class GameManager : NetworkBehaviour
 
     private bool PlayerThrowed()
     {
-        Debug.LogError("1: " + throwed[0]);
-        Debug.LogError("2: " + throwed[1]);
-        Debug.LogError("1&2: " + ((throwed[0] == true) && (throwed[1] == true)));
         return (throwed[0] == true) && (throwed[1] == true);
     }
 

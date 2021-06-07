@@ -51,7 +51,7 @@ public class WaitingRoomUIInformation : NetworkBehaviour
         if (AllPlayerAreReady()) {
             hint.SetActive(false);
             countdown.gameObject.SetActive(true);
-            SoundPlayer.ReadySound();
+            SoundPlayer.CountDownSound();
             if (isServer && countdown.timer <= 0 && sceneIsLoaded == false)
             {
                 sceneIsLoaded = true;
@@ -60,7 +60,7 @@ public class WaitingRoomUIInformation : NetworkBehaviour
         }
         else
         {
-            SoundPlayer.Stop();
+            //SoundPlayer.Stop();
             hint.SetActive(true);
             countdown.gameObject.SetActive(false);
             countdown.timer = countdown.countdown;
@@ -68,15 +68,30 @@ public class WaitingRoomUIInformation : NetworkBehaviour
     }
 
     [Command(requiresAuthority = false)]
-    private void SetPlayerReadyState(int id)
+    public void SetPlayerReadyState(int id)
     {
         if(id == 1)
         {
             playerOneReady = playerOneReady ? false : true;
+            PlaySound(playerOneReady);
         }
         else
         {
             playerTwoReady = playerTwoReady ? false : true;
+            PlaySound(playerTwoReady);
+        }
+    }
+
+    [ClientRpc]
+    public void PlaySound(bool ready)
+    {
+        if (ready)
+        {
+            SoundPlayer.ReadySound();
+        }
+        else
+        {
+            SoundPlayer.CancelReadySound();
         }
     }
 
@@ -84,22 +99,22 @@ public class WaitingRoomUIInformation : NetworkBehaviour
     {
         if (playerOneReady)
         {
-            SoundPlayer.ReadySound();
+            //SoundPlayer.ReadySound();
             playerOneReadyUI.SetActive(true);
         }
         else
         {
-            SoundPlayer.CancelReadySound();
+            //SoundPlayer.CancelReadySound();
             playerOneReadyUI.SetActive(false);
         }
         if (playerTwoReady)
         {
-            SoundPlayer.ReadySound();
+            //SoundPlayer.ReadySound();
             playerTwoReadyUI.SetActive(true);
         }
         else
         {
-            SoundPlayer.CancelReadySound();
+            //SoundPlayer.CancelReadySound();
             playerTwoReadyUI.SetActive(false);
         }
     }
