@@ -18,7 +18,16 @@ public class ShowPlayerMP : MonoBehaviour
     private int current_magic;
     private int i; //to control the speed of adding MP
     private Image MPBar;
-   
+
+    //magic image
+    private GameObject SpeedUpMagic;
+    private GameObject SlowDownMagic;
+    private GameObject StopMagic;
+    private GameObject RewindMagic;
+    private GameObject Bomb;
+
+
+
     void ShootMagic(int magic_number)
     {
         switch (magic_number)
@@ -85,6 +94,32 @@ public class ShowPlayerMP : MonoBehaviour
         LackMPText.color = TextColor;
     }
 
+    void HideMagicImage(int magic_number)
+    {
+        switch (magic_number)
+        {
+            case 1:
+                StopMagic.SetActive(false);
+                break;
+            case 2:
+                SpeedUpMagic.SetActive(false);
+                break;
+            case 3:
+                SlowDownMagic.SetActive(false);
+                break;
+            case 4:
+                RewindMagic.SetActive(false);
+                break;
+            case 5:
+                Bomb.SetActive(false);
+                break;
+            default:
+                break;
+
+        }
+
+
+    }
 
     void Start()
     {
@@ -93,6 +128,18 @@ public class ShowPlayerMP : MonoBehaviour
         CurrentMagicText = (GameObject.Find("CurrentMagic")).GetComponent<Text>();
 
         MPBar = (GameObject.Find("MPBar")).GetComponent<Image>();
+
+        SpeedUpMagic = GameObject.Find("SpeedUPMagic");
+        SlowDownMagic = GameObject.Find("SlowDownMagic");
+        StopMagic = GameObject.Find("StopMagic");
+        RewindMagic = GameObject.Find("RewindMagic");
+        Bomb = GameObject.Find("Bomb");
+
+        StopMagic.SetActive(true);
+        SpeedUpMagic.SetActive(false);
+        SlowDownMagic.SetActive(false);
+        RewindMagic.SetActive(false);
+        Bomb.SetActive(false);
 
         i = 0;
         TextColor = LackMPText.color;
@@ -118,30 +165,48 @@ public class ShowPlayerMP : MonoBehaviour
        
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            HideMagicImage(current_magic);
             current_magic = 1;
-            CurrentMagicText.text = "法術1";
+            CurrentMagicText.text = "暫停";
+            StopMagic.SetActive(true);
         }
 
         //magic 2
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            HideMagicImage(current_magic);
             current_magic = 2;
-            CurrentMagicText.text = "法術2";
+            CurrentMagicText.text = "快轉區域";
+            SpeedUpMagic.SetActive(true);
         }
 
         //magic 3
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            HideMagicImage(current_magic);
             current_magic = 3;
-            CurrentMagicText.text = "法術3";
+            CurrentMagicText.text = "緩慢區域";
+            SlowDownMagic.SetActive(true);
         }
 
         //magic 4
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
+            HideMagicImage(current_magic);
             current_magic = 4;
-            CurrentMagicText.text = "法術4";
+            CurrentMagicText.text = "倒轉";
+            RewindMagic.SetActive(true);
         }
+
+        //Bomb
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            HideMagicImage(current_magic);
+            current_magic = 5;
+            CurrentMagicText.text = "炸彈";
+            Bomb.SetActive(true);
+        }
+
 
         //shoot magic
         if (Input.GetMouseButtonDown(0))
