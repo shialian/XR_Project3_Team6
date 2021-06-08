@@ -5,7 +5,9 @@ using UnityEngine;
 public class GetCookieOrNot : MonoBehaviour
 {
     public Transform[] startPosition;
+    public GameObject cookieOnHand;
 
+    private Animator anim;
     private int playerID;
     private Transform warrior;
 
@@ -14,6 +16,7 @@ public class GetCookieOrNot : MonoBehaviour
         playerID = 0;
         startPosition = new Transform[2];
         warrior = transform.parent.parent;
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -35,12 +38,36 @@ public class GetCookieOrNot : MonoBehaviour
         if (collision.collider.tag == "Cookie")
         {
             GameManager.singleton.GetTheCookie(playerID);
+            cookieOnHand.SetActive(true);
+            anim.SetBool("Win", true);
+            Invoke("ResetAll", 2.5f);
         }
+        else if(collision.collider.tag != "Platform")
+        {
+            ResetAll();
+        }
+        GameManager.singleton.HasThrowed(playerID);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Water")
+        {
+            // play drop down water sound here!
+            Invoke("ResetAll", 2.5f);
+            GameManager.singleton.HasThrowed(playerID);
+        }
+    }
+
+    private void ResetAll()
+    {
+        cookieOnHand.SetActive(false);
+        anim.SetBool("Win", false);
+        GameManager.singleton.ResetGetCookie();
         ResetWizzard(transform);
         ResetWarrior(warrior);
         ResetGoal();
         ResetForbiddenBlock();
-        GameManager.singleton.HasThrowed(playerID);
     }
 
     private void ResetWizzard(Transform wizzard)
