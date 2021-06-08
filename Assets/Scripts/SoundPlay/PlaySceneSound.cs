@@ -126,10 +126,7 @@ public class PlaySceneSound : MonoBehaviour
     {
         audioSource.PlayOneShot(IntoWater);
     }
-    public void FlySound()
-    {
-        audioSource.PlayOneShot(Fly);
-    }
+   
 
 
 

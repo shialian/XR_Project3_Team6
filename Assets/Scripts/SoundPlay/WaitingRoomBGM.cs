@@ -7,6 +7,8 @@ public class WaitingRoomBGM : MonoBehaviour
     public AudioClip CancelReady;
     public AudioClip Ready;
     public AudioClip CountDown;
+    public AudioClip BtnClick;
+    public AudioClip PageFlip;
 
     AudioSource audioSource;
     // Start is called before the first frame update
@@ -38,6 +40,18 @@ public class WaitingRoomBGM : MonoBehaviour
     {
 
         audioSource.PlayOneShot(CountDown);
+
+    }
+
+    public void PlayBtnClickSound()
+    {
+        audioSource.PlayOneShot(BtnClick, 0.7F);
+
+    }
+
+    public void PlayPageFlipSound()
+    {
+        audioSource.PlayOneShot(PageFlip, 0.7F);
 
     }
 }
