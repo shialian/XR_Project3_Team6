@@ -8,6 +8,7 @@ public class GameManager : NetworkBehaviour
 {
     public static GameManager singleton = null;
 
+    public GameObject cookie = null;
     [SyncVar]
     public int numPlayer = 0;
     [SyncVar]
@@ -18,6 +19,8 @@ public class GameManager : NetworkBehaviour
     public SyncList<GameObject> players = new SyncList<GameObject>();
     public SyncList<int> getCookies = new SyncList<int>();
     public SyncList<int> bongs = new SyncList<int>();
+
+    private bool newRoundInvokeing;
 
     private void Start()
     {
@@ -31,6 +34,7 @@ public class GameManager : NetworkBehaviour
             throwed.Add(false);
             throwed.Add(false);
         }
+        newRoundInvokeing = false;
         DontDestroyOnLoad(this);
     }
 
@@ -45,11 +49,28 @@ public class GameManager : NetworkBehaviour
             SetLocalPlayerID();
             NewPlayerAdd();
         }
-        if(isServer && (PlayerThrowed() || playerGetCookie))
+        if(SceneManager.GetActiveScene().name == "Play Scene" && cookie == null)
         {
-            NewRoundStart();
+            cookie = GameObject.Find("cookie").gameObject;
+        }
+        if(cookie && cookie.activeSelf == playerGetCookie)
+        {
+            cookie.SetActive(!playerGetCookie);
+        }
+        if(isServer && (PlayerThrowed() || playerGetCookie) && newRoundInvokeing == false)
+        {
+            newRoundInvokeing = true;
+            if (playerGetCookie)
+            {
+                Invoke("NewRoundStart", 2.5f);
+                Invoke("ResetBongs", 2.5f);
+            }
+            else
+            {
+                NewRoundStart();
+                ResetBongs();
+            }
             ResetThrowed();
-            ResetGetCookie();
         }
     }
 
@@ -86,6 +107,7 @@ public class GameManager : NetworkBehaviour
     public void GetTheCookie(int id)
     {
         getCookies[id - 1]++;
+        playerGetCookie = true;
     }
 
     [ClientRpc]
@@ -96,6 +118,14 @@ public class GameManager : NetworkBehaviour
         Transform pcCamera = warrior.transform.Find("Wagon").Find("Wizzard").Find("PC Camera");
         warrior.GetComponent<MyMovement>().enabled = true;
         pcCamera.GetComponent<MyShootController>().enabled = true;
+        pcCamera.GetComponent<MyShootController>().shootType = MyTimeState.Pause;
+        cookie.SetActive(true);
+        newRoundInvokeing = false;
+    }
+
+    private void ResetBongs()
+    {
+        bongs[0] = bongs[1] = 1;
     }
 
     [Command(requiresAuthority = false)]
@@ -115,6 +145,12 @@ public class GameManager : NetworkBehaviour
     public void ResetGetCookie()
     {
         playerGetCookie = false;
+    }
+
+    [Command(requiresAuthority = false)]
+    public void ComsumeBong(int id)
+    {
+        bongs[id - 1]--;
     }
 
     public void LoadScene(string sceneName, int spawnID)

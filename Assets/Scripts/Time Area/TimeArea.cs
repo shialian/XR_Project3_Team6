@@ -42,7 +42,7 @@ public class TimeArea : MonoBehaviour
         {
             case State.Initialized:
                 if (isBox == false) {
-                    if (Vector3.Distance(transform.position, targetPosition) > 0.1f * speed)
+                    if (Vector3.Distance(transform.position, targetPosition) > 0.01f * speed)
                     {
                         Vector3 direction = (targetPosition - transform.position).normalized;
                         transform.position += speed * direction * Time.fixedDeltaTime;
@@ -80,7 +80,7 @@ public class TimeArea : MonoBehaviour
         target.y = transform.position.y;
         targetPosition = target;
         currentTime = survivalTime;
-        speed = 2f * speedFactor + velocity;
+        speed = 3f * speedFactor + velocity;
 
         state = State.Initialized;
     }

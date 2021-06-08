@@ -52,7 +52,14 @@ public class MyShootController : MonoBehaviour
             else if (shootType == MyTimeState.SlowDown || shootType == MyTimeState.SpeedUp)
                 SetTheSkill();
             else if (shootType == MyTimeState.Normal)
-                SetBong();
+            {
+                int playerID = GameManager.singleton.localPlayerID;
+                if (GameManager.singleton.bongs[playerID - 1] > 0)
+                {
+                    SetBong();
+                    GameManager.singleton.ComsumeBong(playerID);
+                }
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
