@@ -43,7 +43,7 @@ public class MenuBtnAction : MonoBehaviour
     void Start()
     {
     
-    SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<StartUIBGM>();
+         SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<StartUIBGM>();
        
     }
 
