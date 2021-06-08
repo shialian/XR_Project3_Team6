@@ -2833,9 +2833,9 @@ GameObject:
   - component: {fileID: 4077334721430619525}
   - component: {fileID: 4077334721430619524}
   - component: {fileID: 4077334721430619531}
-  - component: {fileID: 4077334721430619526}
   - component: {fileID: 4077334721795807805}
   - component: {fileID: 4077334721795807806}
+  - component: {fileID: 2780538795610235654}
   m_Layer: 0
   m_Name: PC Camera
   m_TagString: Untagged
@@ -2909,23 +2909,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4077334721430619530}
   m_Enabled: 0
---- !u!114 &4077334721430619526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4077334721430619530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ad6cfa01c0f96448d14a560b5c4f8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseXName: Mouse X
-  mouseYName: Mouse Y
-  rotationFactor: 2
-  verticalLowerBound: -30
-  verticalUpperBound: 55
 --- !u!114 &4077334721795807805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2982,6 +2965,22 @@ MonoBehaviour:
   blurIterrations: 1
   blurType: 1
   infoRendererScale: 0.75
+--- !u!114 &2780538795610235654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077334721430619530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949a43c273aec5648bd67f3de04b3631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseYName: Mouse Y
+  rotationFactor: 2
+  verticalLowerBound: -30
+  verticalUpperBound: 55
 --- !u!1 &4077334722542885934
 GameObject:
   m_ObjectHideFlags: 0
@@ -3530,6 +3529,21 @@ CapsuleCollider:
   m_Height: 2.015022
   m_Direction: 1
   m_Center: {x: 0, y: 0.8765807, z: 0}
+--- !u!114 &1156092639964084557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434194140186886009}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadf6da5b7e1c1e4f9418733fdb494c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vertical: Vertical
+  horizontal: Horizontal
+  speedFactor: 15
 --- !u!114 &5434194140228616624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3544,6 +3558,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: []
   cookieOnHand: {fileID: 2033302499264185422}
+--- !u!114 &7448921281156474399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434194140186886009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ad6cfa01c0f96448d14a560b5c4f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseXName: Mouse X
+  rotationFactor: 2
 --- !u!1001 &1222397480801630495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4080,15 +4108,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
---- !u!4 &5434194140573733924 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5434194140574125728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5434194140573733922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5434194140574125728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5434194140573733924 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a,
     type: 3}
   m_PrefabInstance: {fileID: 5434194140574125728}
   m_PrefabAsset: {fileID: 0}

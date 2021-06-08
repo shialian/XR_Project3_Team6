@@ -46,6 +46,10 @@ public class GetCookieOrNot : MonoBehaviour
         {
             ResetAll();
         }
+        else
+        {
+            GetComponent<WizzardMovement>().enabled = true;
+        }
         GameManager.singleton.HasThrowed(playerID);
     }
 
@@ -73,6 +77,8 @@ public class GetCookieOrNot : MonoBehaviour
     private void ResetWizzard(Transform wizzard)
     {
         Rigidbody rb = wizzard.GetComponent<Rigidbody>();
+        wizzard.GetComponent<WizzardMovement>().enabled = false;
+        wizzard.GetComponent<WizzardRotation>().cameraY = 90f;
         wizzard.localPosition = new Vector3(-0.25f, 1.5f, 0.0f);
         rb.velocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezeAll;
