@@ -16,7 +16,7 @@ public class ShowPlayerMP : MonoBehaviour
     private Text CurrentMagicText;
     private Color TextColor;
     private int current_magic;
-    private int i; //to control the speed of adding MP
+   // private int i; //to control the speed of adding MP
     private Image MPBar;
 
     //magic image
@@ -175,7 +175,7 @@ public class ShowPlayerMP : MonoBehaviour
         RewindMagic.SetActive(false);
         Bomb.SetActive(false);
 
-        i = 0;
+        //i = 0;
         TextColor = LackMPText.color;
         current_magic = 1;
     }

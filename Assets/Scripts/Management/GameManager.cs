@@ -183,6 +183,11 @@ public class GameManager : NetworkBehaviour
         bongs[id - 1]--;
     }
 
+    public int getScore(int id)
+    {
+        return getCookies[id-1];
+    } 
+
     public void LoadScene(string sceneName, int spawnID)
     {
         ConnectionManager.cmSingleton.ChangeSpawnID(spawnID);
