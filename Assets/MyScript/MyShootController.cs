@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MyShootController : MonoBehaviour
 {
@@ -24,7 +26,12 @@ public class MyShootController : MonoBehaviour
     public float currentMagic;
     public float magicRecoverySpeed;
 
+
     private MyMovement movement;
+
+    private PlaySceneSound SoundPlayer;
+
+    private ShowPlayerMP showPlayerMP;
 
     private void Start()
     {
@@ -33,6 +40,11 @@ public class MyShootController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
+        SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
+        showPlayerMP = (GameObject.Find("SceneManager")).GetComponent<ShowPlayerMP>();
+
+
+
         currentMagic = maxMagic;
         timeAreaManager_pause = GameObject.Find("Time Trigger Pool (Stop)").GetComponent<TimeAreaManager>();
         timeAreaManager_backward = GameObject.Find("Time Trigger Pool (Backword)").GetComponent<TimeAreaManager>();
@@ -40,7 +52,6 @@ public class MyShootController : MonoBehaviour
         timeBoxManager_slowDown = GameObject.Find("Time Area Pool (SlowDown)").GetComponent<TimeAreaManager>();
         timeBoxManager_bong = GameObject.Find("Time Trigger Pool (Bong)").GetComponent<TimeAreaManager>();
         movement = transform.parent.parent.parent.GetComponent<MyMovement>();
-        
     }
 
     private void Update()
@@ -64,23 +75,39 @@ public class MyShootController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+           
+
             shootType = MyTimeState.Pause;
+            SoundPlayer.ChangeMagicSound();
+            
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            
             shootType = MyTimeState.SpeedUp;
+            SoundPlayer.ChangeMagicSound();
+            
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+           
             shootType = MyTimeState.SlowDown;
+            SoundPlayer.ChangeMagicSound();
+           
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
+           
             shootType = MyTimeState.BackWard;
+            SoundPlayer.ChangeMagicSound();
+            
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
+           
             shootType = MyTimeState.Normal;
+            SoundPlayer.ChangeMagicSound();
+            
         }
 
         if (currentMagic < maxMagic)
@@ -107,6 +134,10 @@ public class MyShootController : MonoBehaviour
                         currentMagic -= timeAreaManager_pause_consuming;
                         timeAreaManager_pause.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
                     }
+                    else
+                    {
+                        showPlayerMP.showLackMP();
+                    }
                     break;
                 /*
                 case MyTimeState.SpeedUp:
@@ -129,6 +160,10 @@ public class MyShootController : MonoBehaviour
                     {
                         currentMagic -= timeAreaManager_backward_consuming;
                         timeAreaManager_backward.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
+                    }
+                    else
+                    {
+                        showPlayerMP.showLackMP();
                     }
                     break;
                 case MyTimeState.Normal:
@@ -163,12 +198,20 @@ public class MyShootController : MonoBehaviour
                         currentMagic -= timeBoxManager_speedUp_consuming;
                         timeBoxManager_speedUp.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point, velocity);
                     }
+                    else
+                    {
+                        showPlayerMP.showLackMP();
+                    }
                     break;
                 case MyTimeState.SlowDown:
                     if (currentMagic >= timeBoxManager_slowDown_consuming)
                     {
                         currentMagic -= timeBoxManager_slowDown_consuming;
                         timeBoxManager_slowDown.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point, velocity);
+                    }
+                    else
+                    {
+                        showPlayerMP.showLackMP();
                     }
                     break;
             }
@@ -188,5 +231,10 @@ public class MyShootController : MonoBehaviour
         }
     }
 
+    public float GetMP()
+    {
 
+        return currentMagic;
+
+    }
 }

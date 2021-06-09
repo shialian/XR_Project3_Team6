@@ -10,7 +10,7 @@ public class ShowPlayerMP : MonoBehaviour
 {
    
 
-    private int MP = 100;
+    private float MP ;
     private Text myText;
     private Text LackMPText;
     private Text CurrentMagicText;
@@ -26,8 +26,10 @@ public class ShowPlayerMP : MonoBehaviour
     private GameObject RewindMagic;
     private GameObject Bomb;
 
+    private MyShootController myShootController;
 
 
+    /*
     void ShootMagic(int magic_number)
     {
         switch (magic_number)
@@ -86,15 +88,16 @@ public class ShowPlayerMP : MonoBehaviour
         }
 
     }
+    */
     // Start is called before the first frame update
 
-    void showLackMP()
+    public void showLackMP()
     {
         TextColor.a = 1;
         LackMPText.color = TextColor;
     }
 
-    void HideMagicImage(int magic_number)
+    public void HideMagicImage(int magic_number)
     {
         switch (magic_number)
         {
@@ -121,6 +124,35 @@ public class ShowPlayerMP : MonoBehaviour
 
     }
 
+    public void ShowMagicImage(int magic_number)
+    {
+        switch (magic_number)
+        {
+            case 1:
+                StopMagic.SetActive(true);
+                break;
+            case 2:
+                SpeedUpMagic.SetActive(true);
+                break;
+            case 3:
+                SlowDownMagic.SetActive(true);
+                break;
+            case 4:
+                RewindMagic.SetActive(true);
+                break;
+            case 5:
+                Bomb.SetActive(true);
+                break;
+            default:
+                break;
+
+        }
+
+
+    }
+
+
+
     void Start()
     {
         myText = (GameObject.Find("MP_text")).GetComponent<Text>();
@@ -128,6 +160,9 @@ public class ShowPlayerMP : MonoBehaviour
         CurrentMagicText = (GameObject.Find("CurrentMagic")).GetComponent<Text>();
 
         MPBar = (GameObject.Find("MPBar")).GetComponent<Image>();
+
+        myShootController = (GameObject.Find("PC Camera")).GetComponent<MyShootController>();
+        MP = myShootController.GetMP();
 
         SpeedUpMagic = GameObject.Find("SpeedUPMagic");
         SlowDownMagic = GameObject.Find("SlowDownMagic");
@@ -149,6 +184,8 @@ public class ShowPlayerMP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MP = myShootController.GetMP();
+        /*
         //get current MP
         int.TryParse(myText.text, out MP);
 
@@ -159,7 +196,7 @@ public class ShowPlayerMP : MonoBehaviour
             MP++;
             i = 0;
         }
-
+        */
         ////////////////////spell magic/////////////////
         //magic 1
        
@@ -209,10 +246,11 @@ public class ShowPlayerMP : MonoBehaviour
 
 
         //shoot magic
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             ShootMagic(current_magic);
-        }
+        }*/
         
         //MP不足的字    
         TextColor = LackMPText.color;
