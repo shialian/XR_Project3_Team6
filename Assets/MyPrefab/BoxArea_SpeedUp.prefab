@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 0.5
   smallScale: 0.6
-  largeScale: 2
+  largeScale: 4
   frequenceHZ: 6
   halfLife: 0.5
 --- !u!114 &-4163482254898762894

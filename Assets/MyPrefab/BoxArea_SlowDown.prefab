@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 0.5
   smallScale: 0.6
-  largeScale: 2
+  largeScale: 4
   frequenceHZ: 6
   halfLife: 0.5
 --- !u!114 &9046546037981356105
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe56dd9bd4ddba541af670a6951aade9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localTimeScale: 0.1
+  _localTimeScale: 0.5
   _paused: 0
   _parentKey: 
   _parentBlend: 0
