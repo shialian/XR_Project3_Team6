@@ -10,6 +10,7 @@ public class GetCookieOrNot : MonoBehaviour
     private Animator anim;
     private int playerID;
     private Transform warrior;
+    private PlaySceneSound SoundPlayer;
 
     private void Awake()
     {
@@ -18,6 +19,12 @@ public class GetCookieOrNot : MonoBehaviour
         warrior = transform.parent.parent;
         anim = GetComponent<Animator>();
     }
+
+    private void Start()
+    {
+        SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
+    }
+
 
     private void Update()
     {
@@ -39,6 +46,7 @@ public class GetCookieOrNot : MonoBehaviour
         {
             GameManager.singleton.GetTheCookie(playerID);
             cookieOnHand.SetActive(true);
+            SoundPlayer.GetCookieSound();
             anim.SetBool("Win", true);
             Invoke("ResetAll", 2.5f);
         }
@@ -58,6 +66,7 @@ public class GetCookieOrNot : MonoBehaviour
         if(other.tag == "Water")
         {
             // play drop down water sound here!
+            SoundPlayer.IntoWaterSound();
             Invoke("ResetAll", 2.5f);
             GameManager.singleton.HasThrowed(playerID);
         }

@@ -12,6 +12,8 @@ public class Throw : MonoBehaviour
         OnThrowing,
         Throwed
     }
+    
+    private PlaySceneSound SoundPlayer;
 
     public GameObject selectionPointer;
     public Rigidbody wizzard;
@@ -29,6 +31,8 @@ public class Throw : MonoBehaviour
         transform.rotation = Quaternion.identity;
         selectionPointer.SetActive(true);
         playerID = GameManager.singleton.localPlayerID;
+        SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
+
     }
 
     private void Update()
@@ -44,6 +48,7 @@ public class Throw : MonoBehaviour
                     break;
                 case State.OnForceSelection:
                     state = State.OnThrowing;
+                    SoundPlayer.ThrowSound();
                     Throwing();
                     break;
             }

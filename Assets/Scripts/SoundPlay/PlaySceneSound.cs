@@ -132,9 +132,23 @@ public class PlaySceneSound : MonoBehaviour
     {
         audioSource.PlayOneShot(IntoWater);
     }
-   
+
+    //result related
+    public void WinSound()
+    {
+        audioSource.PlayOneShot(Win);
+    }
+
+    public void LoseSound()
+    {
+        audioSource.PlayOneShot(Lose);
+    }
 
 
+    public void GetCookieSound()
+    {
+        audioSource.PlayOneShot(GetCookie);
+    }
 
     public void Stop()
     {
