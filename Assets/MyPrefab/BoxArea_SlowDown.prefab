@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1616453457ddc64f9e41c5f2e254295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  survivalTime: 10
+  survivalTime: 100000
   speedFactor: 1
   bubbleVFX: {fileID: 100004, guid: 642bd52d1a9ebc64b9df90baaf3448eb, type: 3}
   isBox: 1
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe56dd9bd4ddba541af670a6951aade9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localTimeScale: 0.5
+  _localTimeScale: 0.25
   _paused: 0
   _parentKey: 
   _parentBlend: 0
