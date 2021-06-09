@@ -14,12 +14,38 @@ public class MyBubbleTrigger : MonoBehaviour
     public bool isBong = false;
     public bool isDestroyAfterTrigger = false;
 
+    private PlaySceneSound SoundPlayer;
+
     public void Start()
     {
         canTrigger = true;
+        SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
     }
 
+    void PlayShotSound()
+    {
 
+        switch (effectType)
+        {
+            case MyTimeState.Pause:
+                SoundPlayer.GetShot(1);
+                break;
+            case MyTimeState.SpeedUp:
+                SoundPlayer.GetShot(2);
+                break;
+            case MyTimeState.SlowDown:
+                SoundPlayer.GetShot(3);
+                break;
+            case MyTimeState.BackWard:
+                SoundPlayer.GetShot(4);
+                break;
+            default:
+                break;
+        }
+        
+
+
+    }
     public void OnTriggerEnter(Collider other)
     {
         if (!isBong) {
@@ -27,6 +53,7 @@ public class MyBubbleTrigger : MonoBehaviour
             {
                 MyTestAI ai = other.GetComponent<MyTestAI>();
                 if (ai != null) {
+                    PlayShotSound();
                     Instantiate(bubbleVFX, transform.position, transform.rotation);
                     canTrigger = false;
                     other.GetComponent<MyTestAI>().SetState(effectType, effectTimeLength);
@@ -38,10 +65,11 @@ public class MyBubbleTrigger : MonoBehaviour
         {
             if (other.tag == "Magic" && canTrigger == true)
             {
+                
                 TimeArea timeArea = other.GetComponent<TimeArea>();
                 if (timeArea != null)
                 {
-                    
+                    SoundPlayer.GetShot(5);
                     //canTrigger = false;
                     timeArea.Reset();
                     if (isDestroyAfterTrigger)

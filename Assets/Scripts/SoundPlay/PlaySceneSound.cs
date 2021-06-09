@@ -18,6 +18,7 @@ public class PlaySceneSound : MonoBehaviour
     public AudioClip SlowDown_shot;
     public AudioClip Stop_shot;
     public AudioClip Rewind_shot;
+    public AudioClip Bomb_shot;
 
     // Move Related
     public AudioClip Run;
@@ -96,11 +97,11 @@ public class PlaySceneSound : MonoBehaviour
             case 4:
                 audioSource.PlayOneShot(Rewind_shot);
                 break;
-            /*
+            
             case 5:
-                audioSource.PlayOneShot(ShootMagicBomb);
+                audioSource.PlayOneShot(Bomb_shot,0.7f);
                 break;
-            */
+            
             default:
                 break;
 

@@ -66,6 +66,7 @@ public class MyShootController : MonoBehaviour
                 int playerID = GameManager.singleton.localPlayerID;
                 if (GameManager.singleton.bongs[playerID - 1] > 0)
                 {
+                    SoundPlayer.ShootMagic(5);
                     SetBong();
                     GameManager.singleton.ComsumeBong(playerID);
                 }
@@ -120,6 +121,7 @@ public class MyShootController : MonoBehaviour
             {
                 case MyTimeState.Pause:
                     if (currentMagic >= timeAreaManager_pause_consuming) {
+                        SoundPlayer.ShootMagic(1);
                         currentMagic -= timeAreaManager_pause_consuming;
                         timeAreaManager_pause.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
                     }
@@ -147,6 +149,7 @@ public class MyShootController : MonoBehaviour
                 case MyTimeState.BackWard:
                     if (currentMagic >= timeAreaManager_backward_consuming)
                     {
+                        SoundPlayer.ShootMagic(4);
                         currentMagic -= timeAreaManager_backward_consuming;
                         timeAreaManager_backward.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
                     }
@@ -184,6 +187,7 @@ public class MyShootController : MonoBehaviour
                 case MyTimeState.SpeedUp:
                     if (currentMagic >= timeBoxManager_speedUp_consuming)
                     {
+                        SoundPlayer.ShootMagic(2);
                         currentMagic -= timeBoxManager_speedUp_consuming;
                         timeBoxManager_speedUp.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point, velocity);
                     }
@@ -195,6 +199,7 @@ public class MyShootController : MonoBehaviour
                 case MyTimeState.SlowDown:
                     if (currentMagic >= timeBoxManager_slowDown_consuming)
                     {
+                        SoundPlayer.ShootMagic(3);
                         currentMagic -= timeBoxManager_slowDown_consuming;
                         timeBoxManager_slowDown.CreateTimeAreaByServerCalling(hit.point, Quaternion.identity, hit.point, velocity);
                     }
