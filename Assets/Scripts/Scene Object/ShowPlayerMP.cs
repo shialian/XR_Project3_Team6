@@ -4,16 +4,18 @@ using UnityEngine;
 using System;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class ShowPlayerMP : MonoBehaviour
 {
-    private PlaySceneSound SoundPlayer;
+    /* 子UI */
+    private Transform skillUI;
+    private Transform MPUI;
 
     private float MP ;
-    private Text myText;
-    private Text LackMPText;
-    private Text CurrentMagicText;
+    private TextMeshProUGUI myText;
+    private TextMeshProUGUI LackMPText;
+    private TextMeshProUGUI CurrentMagicText;
     private Color TextColor;
     private int current_magic;
    // private int i; //to control the speed of adding MP
@@ -28,73 +30,10 @@ public class ShowPlayerMP : MonoBehaviour
 
     private MyShootController myShootController;
 
-
-    /*
-    void ShootMagic(int magic_number)
-    {
-        switch (magic_number)
-        {
-            case 1:
-                if (MP >= 30)
-                {
-                    MP -= 30;
-                    Debug.Log("法術1");
-
-                }
-                else
-                {
-                    showLackMP();
-                }
-                break;
-            case 2:
-                if (MP >= 30)
-                {
-                    MP -= 30;
-                    Debug.Log("法術2");
-
-                }
-                else
-                {
-                    showLackMP();
-                }
-                break;
-            case 3:
-                if (MP >= 25)
-                {
-                    MP -= 25;
-                    Debug.Log("法術3");
-
-                }
-                else
-                {
-                    showLackMP();
-                }
-                break;
-            case 4:
-                if (MP >= 75)
-                {
-                    MP -= 75;
-                    Debug.Log("法術4");
-
-                }
-                else
-                {
-                    showLackMP();
-                }
-                break;
-            default:
-                break;
-
-        }
-
-    }
-    */
-
     public void showLackMP()
     {
         TextColor.a = 1;
         LackMPText.color = TextColor;
-        SoundPlayer.LackMpSound();
     }
 
     public void HideMagicImage(int magic_number)
@@ -120,8 +59,6 @@ public class ShowPlayerMP : MonoBehaviour
                 break;
 
         }
-
-
     }
 
     public void ShowMagicImage(int magic_number)
@@ -145,34 +82,49 @@ public class ShowPlayerMP : MonoBehaviour
                 break;
             default:
                 break;
-
         }
-
-
     }
 
-
+    public void ChangeMagicText(int magic_number)
+    {
+        switch (magic_number)
+        {
+            case 1:
+                CurrentMagicText.SetText("暫停");
+                break;
+            case 2:
+                CurrentMagicText.SetText("快轉區域");
+                break;
+            case 3:
+                CurrentMagicText.SetText("緩慢區域");
+                break;
+            case 4:
+                CurrentMagicText.SetText("倒轉");
+                break;
+            case 5:
+                CurrentMagicText.SetText("炸彈");
+                break;
+        }
+    }
 
     void Start()
     {
-        myText = (GameObject.Find("MP_text")).GetComponent<Text>();
-        LackMPText = (GameObject.Find("lackMP")).GetComponent<Text>();
-        CurrentMagicText = (GameObject.Find("CurrentMagic")).GetComponent<Text>();
+        skillUI = transform.Find("Skill");
+        MPUI = transform.Find("MP");
 
-        MPBar = (GameObject.Find("MPBar")).GetComponent<Image>();
+        CurrentMagicText = skillUI.Find("CurrentMagic").GetComponent<TextMeshProUGUI>();
+        SpeedUpMagic = skillUI.Find("SpeedUPMagic").gameObject;
+        SlowDownMagic = skillUI.Find("SlowDownMagic").gameObject;
+        StopMagic = skillUI.Find("StopMagic").gameObject;
+        RewindMagic = skillUI.Find("RewindMagic").gameObject;
+        Bomb = skillUI.Find("Bomb").gameObject;
 
-        myShootController = (GameObject.Find("PC Camera")).GetComponent<MyShootController>();
+        myText = MPUI.Find("MP_text").GetComponent<TextMeshProUGUI>();
+        MPBar = MPUI.Find("MPBar").GetComponent<Image>();
+
+        myShootController = transform.parent.GetComponent<MyShootController>();
         MP = myShootController.GetMP();
-
-        SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
-
-
-        //initial
-        SpeedUpMagic = GameObject.Find("SpeedUPMagic");
-        SlowDownMagic = GameObject.Find("SlowDownMagic");
-        StopMagic = GameObject.Find("StopMagic");
-        RewindMagic = GameObject.Find("RewindMagic");
-        Bomb = GameObject.Find("Bomb");
+        LackMPText = transform.Find("lackMP").GetComponent<TextMeshProUGUI>();
 
         StopMagic.SetActive(true);
         SpeedUpMagic.SetActive(false);
@@ -180,9 +132,14 @@ public class ShowPlayerMP : MonoBehaviour
         RewindMagic.SetActive(false);
         Bomb.SetActive(false);
 
-        //i = 0;
         TextColor = LackMPText.color;
-        current_magic = 1;
+        TextColor.a = 0f;
+        LackMPText.color = TextColor;
+
+        HideMagicImage(current_magic);
+        current_magic = (int)myShootController.shootType;
+        ChangeMagicText(current_magic);
+        ShowMagicImage(current_magic);
     }
 
     // Update is called once per frame
@@ -208,8 +165,8 @@ public class ShowPlayerMP : MonoBehaviour
         {
             HideMagicImage(current_magic);
             current_magic = 1;
-            CurrentMagicText.text = "暫停";
-            StopMagic.SetActive(true);
+            ChangeMagicText(current_magic);
+            ShowMagicImage(current_magic);
         }
 
         //magic 2
@@ -217,8 +174,8 @@ public class ShowPlayerMP : MonoBehaviour
         {
             HideMagicImage(current_magic);
             current_magic = 2;
-            CurrentMagicText.text = "快轉區域";
-            SpeedUpMagic.SetActive(true);
+            ChangeMagicText(current_magic);
+            ShowMagicImage(current_magic);
         }
 
         //magic 3
@@ -226,8 +183,8 @@ public class ShowPlayerMP : MonoBehaviour
         {
             HideMagicImage(current_magic);
             current_magic = 3;
-            CurrentMagicText.text = "緩慢區域";
-            SlowDownMagic.SetActive(true);
+            ChangeMagicText(current_magic);
+            ShowMagicImage(current_magic);
         }
 
         //magic 4
@@ -235,8 +192,8 @@ public class ShowPlayerMP : MonoBehaviour
         {
             HideMagicImage(current_magic);
             current_magic = 4;
-            CurrentMagicText.text = "倒轉";
-            RewindMagic.SetActive(true);
+            ChangeMagicText(current_magic);
+            ShowMagicImage(current_magic);
         }
 
         //Bomb
@@ -244,8 +201,8 @@ public class ShowPlayerMP : MonoBehaviour
         {
             HideMagicImage(current_magic);
             current_magic = 5;
-            CurrentMagicText.text = "炸彈";
-            Bomb.SetActive(true);
+            ChangeMagicText(current_magic);
+            ShowMagicImage(current_magic);
         }
 
 
@@ -255,7 +212,7 @@ public class ShowPlayerMP : MonoBehaviour
         {
             ShootMagic(current_magic);
         }*/
-        
+
         //MP不足的字    
         TextColor = LackMPText.color;
         if( TextColor.a > 0)
@@ -264,8 +221,7 @@ public class ShowPlayerMP : MonoBehaviour
             LackMPText.color = TextColor;
         }
 
-
-        myText.text  = MP.ToString();
+        myText.SetText(MP.ToString());
 
 
         // MP Bar 調整
