@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -1433112557661540393}
   - component: {fileID: -4163482254898762894}
   - component: {fileID: 8976649615004662725}
+  - component: {fileID: 2303508807003862121}
   m_Layer: 0
   m_Name: BoxArea_SpeedUp
   m_TagString: Magic
@@ -127,10 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1616453457ddc64f9e41c5f2e254295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  survivalTime: 5
+  survivalTime: 10
   speedFactor: 1
   bubbleVFX: {fileID: 100004, guid: 5f1a0937ae5d93e469a3c4b64b72601b, type: 3}
   isBox: 1
+  warrior: {fileID: 0}
 --- !u!114 &1739537298632622884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,12 +140,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739537298632622883}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d41d6081729152741811eaa5cd6965a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canTrigger: 1
+  canTrigger: 0
   effectType: 2
   effectTimeLength: 3
   bubbleVFX: {fileID: 100004, guid: 5f1a0937ae5d93e469a3c4b64b72601b, type: 3}
@@ -204,3 +206,47 @@ MonoBehaviour:
   compressRotation: 0
   interpolateScale: 1
   syncScale: 1
+--- !u!114 &2303508807003862121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739537298632622883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe56dd9bd4ddba541af670a6951aade9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localTimeScale: 2
+  _paused: 0
+  _parentKey: 
+  _parentBlend: 0
+  _mode: 0
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _center: {x: 0, y: 0, z: 0}
+  _padding: 0.5
+  _innerBlend: 0

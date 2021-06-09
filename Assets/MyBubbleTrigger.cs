@@ -8,6 +8,7 @@ public class MyBubbleTrigger : MonoBehaviour
 
     public MyTimeState effectType;
     public float effectTimeLength;
+
     public GameObject bubbleVFX;
 
     public bool isBong = false;
