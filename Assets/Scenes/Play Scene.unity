@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6383761, g: 0.8876793, b: 0.9160402, a: 1}
+  m_IndirectSpecularColor: {r: 0.63837606, g: 0.8876793, b: 0.91604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1678,6 +1678,10 @@ PrefabInstance:
     - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_Name
       value: TB_Env_Stone4_D (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 4654916662300432, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_RootOrder
@@ -4464,6 +4468,10 @@ PrefabInstance:
     - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_Name
       value: TB_Env_Stone4_D (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 4654916662300432, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_RootOrder
@@ -8381,6 +8389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Bd_WatchTower (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1223397965205292, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 4060319091785312, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -8735,6 +8747,10 @@ PrefabInstance:
     - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_Name
       value: TB_Env_Stone4_D (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 4654916662300432, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_RootOrder
@@ -10631,6 +10647,10 @@ PrefabInstance:
     - target: {fileID: 1120992861759452, guid: e43ec1f6abe0a1843a1819678bafbcde, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120992861759452, guid: e43ec1f6abe0a1843a1819678bafbcde, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 4968646091362864, guid: e43ec1f6abe0a1843a1819678bafbcde, type: 3}
       propertyPath: m_RootOrder
@@ -12746,6 +12766,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1120992861759452, guid: e43ec1f6abe0a1843a1819678bafbcde, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 4968646091362864, guid: e43ec1f6abe0a1843a1819678bafbcde, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13082,6 +13106,10 @@ PrefabInstance:
     - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_Name
       value: TB_Env_Stone4_D (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 4654916662300432, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_RootOrder
@@ -13509,6 +13537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Bd_WatchTower
       objectReference: {fileID: 0}
+    - target: {fileID: 1223397965205292, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 4060319091785312, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -13902,6 +13934,10 @@ PrefabInstance:
     - target: {fileID: 1223397965205292, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
       propertyPath: m_Name
       value: TB_Bd_WatchTower (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223397965205292, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 4060319091785312, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
       propertyPath: m_RootOrder
@@ -15682,6 +15718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Prop_Wagon
       objectReference: {fileID: 0}
+    - target: {fileID: 1038672804272660, guid: e58f065cb1b0573498f64facbffab6d0, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 4212611610388030, guid: e58f065cb1b0573498f64facbffab6d0, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -17384,6 +17424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Env_Stone4_D (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
     - target: {fileID: 4654916662300432, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -17663,6 +17707,10 @@ PrefabInstance:
     - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_Name
       value: TB_Env_Stone4_D (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 4654916662300432, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_RootOrder
@@ -20682,6 +20730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Env_Stone4_D (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
+      propertyPath: m_TagString
+      value: Stone
+      objectReference: {fileID: 0}
     - target: {fileID: 4654916662300432, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -21356,6 +21408,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1120992861759452, guid: e43ec1f6abe0a1843a1819678bafbcde, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 4968646091362864, guid: e43ec1f6abe0a1843a1819678bafbcde, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -21661,6 +21717,10 @@ PrefabInstance:
     - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_Name
       value: TB_Env_Stone4_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 4654916662300432, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_RootOrder
@@ -22814,6 +22874,10 @@ PrefabInstance:
     - target: {fileID: 1223397965205292, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
       propertyPath: m_Name
       value: TB_Bd_WatchTower (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223397965205292, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: 4060319091785312, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
       propertyPath: m_RootOrder
@@ -24175,6 +24239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Bd_WatchTower (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1223397965205292, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 4060319091785312, guid: 366120d4294748b4ebf8ff2a503c23ba, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -24482,6 +24550,10 @@ PrefabInstance:
     - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_Name
       value: TB_Env_Stone4_D (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304080076803282, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 4654916662300432, guid: 5c8b7be43c67fc34e8da2b4a575c8d45, type: 3}
       propertyPath: m_RootOrder
@@ -26476,6 +26548,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 2c512fb227c21434b989bd2f26f5a5af, type: 3}
     - target: {fileID: 7464297540861189294, guid: 13aa9dd0f5fc68e489d0078c0e1ab51b,
         type: 3}
+      propertyPath: Bomb_shot
+      value: 
+      objectReference: {fileID: 8300000, guid: c4f03fb9267a0214b80c10267b7c6373, type: 3}
+    - target: {fileID: 7464297540861189294, guid: 13aa9dd0f5fc68e489d0078c0e1ab51b,
+        type: 3}
       propertyPath: GetCookie
       value: 
       objectReference: {fileID: 8300000, guid: fa6fd0a0d52c8904ebb098aa87da5e03, type: 3}
@@ -26529,8 +26606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40aa0542330db44591ac175a0881184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BtnClick: {fileID: 0}
-  PageFlip: {fileID: 0}
+  BtnClick: {fileID: 8300000, guid: 514cae433c6a64e40a82f7ed83e44b3d, type: 3}
+  PageFlip: {fileID: 8300000, guid: abb59d88d434dc64fbdd146722cf9c4b, type: 3}
 --- !u!1 &2117391256
 GameObject:
   m_ObjectHideFlags: 0

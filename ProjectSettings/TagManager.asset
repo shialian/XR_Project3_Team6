@@ -12,6 +12,8 @@ TagManager:
   - Magic
   - Water
   - Platform
+  - Tree
+  - Stone
   layers:
   - Default
   - TransparentFX
