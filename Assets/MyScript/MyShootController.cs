@@ -20,11 +20,12 @@ public class MyShootController : MonoBehaviour
 
     public bool lockMouse;
 
-    public MyTimeState shootType = MyTimeState.Pause;
+    public MyTimeState shootType = MyTimeState.SpeedUp;
 
     public float maxMagic;
     public float currentMagic;
     public float magicRecoverySpeed;
+
 
     private MyMovement movement;
 
@@ -40,9 +41,8 @@ public class MyShootController : MonoBehaviour
         }
 
         SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
-        showPlayerMP = (GameObject.Find("SceneManager")).GetComponent<ShowPlayerMP>();
-
-
+        //showPlayerMP = (GameObject.Find("SceneManager")).GetComponent<ShowPlayerMP>();
+        showPlayerMP = transform.Find("Player_UI").GetComponent<ShowPlayerMP>();
 
         currentMagic = maxMagic;
         timeAreaManager_pause = GameObject.Find("Time Trigger Pool (Stop)").GetComponent<TimeAreaManager>();
@@ -74,39 +74,29 @@ public class MyShootController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-           
-
             shootType = MyTimeState.Pause;
             SoundPlayer.ChangeMagicSound();
             
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            
             shootType = MyTimeState.SpeedUp;
             SoundPlayer.ChangeMagicSound();
-            
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-           
             shootType = MyTimeState.SlowDown;
             SoundPlayer.ChangeMagicSound();
-           
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-           
             shootType = MyTimeState.BackWard;
             SoundPlayer.ChangeMagicSound();
-            
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-           
             shootType = MyTimeState.Normal;
             SoundPlayer.ChangeMagicSound();
-            
         }
 
         if (currentMagic < maxMagic)
@@ -230,10 +220,8 @@ public class MyShootController : MonoBehaviour
         }
     }
 
-    public float GetMP()
+    public int GetMP()
     {
-
-        return currentMagic;
-
+        return (int)currentMagic;
     }
 }

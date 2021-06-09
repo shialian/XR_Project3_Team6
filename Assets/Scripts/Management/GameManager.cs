@@ -134,7 +134,7 @@ public class GameManager : NetworkBehaviour
         Transform pcCamera = warrior.transform.Find("Wagon").Find("Wizzard").Find("PC Camera");
         warrior.GetComponent<MyMovement>().enabled = true;
         pcCamera.GetComponent<MyShootController>().enabled = true;
-        pcCamera.GetComponent<MyShootController>().shootType = MyTimeState.Pause;
+        pcCamera.GetComponent<MyShootController>().shootType = MyTimeState.SpeedUp;
         cookie.SetActive(true);
         newRoundInvokeing = false;
     }
@@ -182,11 +182,6 @@ public class GameManager : NetworkBehaviour
     {
         bongs[id - 1]--;
     }
-
-    public int getScore(int id)
-    {
-        return getCookies[id-1];
-    } 
 
     public void LoadScene(string sceneName, int spawnID)
     {
