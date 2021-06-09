@@ -29,6 +29,11 @@ public class PlaySceneSound : MonoBehaviour
     public AudioClip IntoWater;
 
 
+    //Result Relate
+    public AudioClip GetCookie;
+    public AudioClip Win;
+    public AudioClip Lose;
+
     AudioSource audioSource;
 
     void Start()

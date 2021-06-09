@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class ShowPlayerMP : MonoBehaviour
 {
-   
+    private PlaySceneSound SoundPlayer;
 
     private float MP ;
     private Text myText;
@@ -94,6 +94,7 @@ public class ShowPlayerMP : MonoBehaviour
     {
         TextColor.a = 1;
         LackMPText.color = TextColor;
+        SoundPlayer.LackMpSound();
     }
 
     public void HideMagicImage(int magic_number)
@@ -163,6 +164,10 @@ public class ShowPlayerMP : MonoBehaviour
         myShootController = (GameObject.Find("PC Camera")).GetComponent<MyShootController>();
         MP = myShootController.GetMP();
 
+        SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
+
+
+        //initial
         SpeedUpMagic = GameObject.Find("SpeedUPMagic");
         SlowDownMagic = GameObject.Find("SlowDownMagic");
         StopMagic = GameObject.Find("StopMagic");

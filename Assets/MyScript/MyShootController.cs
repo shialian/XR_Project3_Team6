@@ -26,7 +26,6 @@ public class MyShootController : MonoBehaviour
     public float currentMagic;
     public float magicRecoverySpeed;
 
-
     private MyMovement movement;
 
     private PlaySceneSound SoundPlayer;
