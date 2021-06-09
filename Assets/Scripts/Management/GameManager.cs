@@ -8,13 +8,25 @@ public class GameManager : NetworkBehaviour
 {
     public static GameManager singleton = null;
 
+    /* 場景物件跟回合紀錄 */
     public GameObject cookie = null;
+    public int round = 1;
+
+    /* 玩家資料紀錄 */
     [SyncVar]
     public int numPlayer = 0;
+    public int localPlayerID;
     [SyncVar]
     public bool playerGetCookie = false;
-    public int round = 1;
-    public int localPlayerID;
+
+    /* 獲勝條件 */
+    public int winCondition = 3;
+    [SyncVar]
+    public bool playerWinTheGame = false;
+    [SyncVar]
+    public int winnerID = 0;
+    
+    /* 其他以list形式儲存的資料 */
     public SyncList<bool> throwed = new SyncList<bool>();
     public SyncList<GameObject> players = new SyncList<GameObject>();
     public SyncList<int> getCookies = new SyncList<int>();
@@ -57,20 +69,24 @@ public class GameManager : NetworkBehaviour
         {
             cookie.SetActive(!playerGetCookie);
         }
-        if(isServer && (PlayerThrowed() || playerGetCookie) && newRoundInvokeing == false)
+        if(isServer)
         {
-            newRoundInvokeing = true;
-            if (playerGetCookie)
+            if ((PlayerThrowed() || playerGetCookie) && newRoundInvokeing == false)
             {
-                Invoke("NewRoundStart", 2.5f);
-                Invoke("ResetBongs", 2.5f);
+                newRoundInvokeing = true;
+                if (playerGetCookie)
+                {
+                    Invoke("NewRoundStart", 2.5f);
+                    Invoke("ResetBongs", 2.5f);
+                }
+                else
+                {
+                    NewRoundStart();
+                    ResetBongs();
+                }
+                ResetThrowed();
             }
-            else
-            {
-                NewRoundStart();
-                ResetBongs();
-            }
-            ResetThrowed();
+            CheckPlayerGetCookies();
         }
     }
 
@@ -128,6 +144,20 @@ public class GameManager : NetworkBehaviour
         bongs[0] = bongs[1] = 1;
     }
 
+    private void CheckPlayerGetCookies()
+    {
+        if(getCookies[0] == winCondition)
+        {
+            winnerID = 1;
+            playerWinTheGame = true;
+        }
+        else if(getCookies[0] == winCondition)
+        {
+            winnerID = 2;
+            playerWinTheGame = true;
+        }
+    }
+
     [Command(requiresAuthority = false)]
     public void HasThrowed(int id)
     {
@@ -157,5 +187,14 @@ public class GameManager : NetworkBehaviour
     {
         ConnectionManager.cmSingleton.ChangeSpawnID(spawnID);
         ConnectionManager.cmSingleton.ServerChangeScene(sceneName);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void NewGameStart()
+    {
+        getCookies[0] = getCookies[1] = 0;
+        bongs[0] = bongs[1] = 0;
+        throwed[0] = throwed[1] = false;
+        newRoundInvokeing = false;
     }
 }

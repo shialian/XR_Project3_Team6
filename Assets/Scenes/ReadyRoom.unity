@@ -2644,7 +2644,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1481906491
 GameObject:
@@ -2789,7 +2789,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1523464400 stripped
 Transform:
@@ -3994,7 +3994,7 @@ PrefabInstance:
     - target: {fileID: 3745123983928973626, guid: 193e1447b9c2a694d9670cd6dc1fe0ca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3745123983928973626, guid: 193e1447b9c2a694d9670cd6dc1fe0ca,
         type: 3}
@@ -4199,7 +4199,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2220245815977355311
 MonoBehaviour:
@@ -4215,11 +4215,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  winCondition: 3
   cookie: {fileID: 0}
-  numPlayer: 0
-  playerGetCookie: 0
   round: 1
   localPlayerID: 0
+  numPlayer: 0
+  playerGetCookie: 0
+  playerWinTheGame: 0
+  winnerID: 0
 --- !u!114 &2406175992956524614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3745123983928973625, guid: 193e1447b9c2a694d9670cd6dc1fe0ca,
@@ -5504,7 +5507,7 @@ RectTransform:
   m_Children:
   - {fileID: 5773365997643100714}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6366,7 +6369,7 @@ RectTransform:
   m_Children:
   - {fileID: 7945945095490682207}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

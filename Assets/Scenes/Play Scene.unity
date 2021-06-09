@@ -8182,6 +8182,21 @@ CapsuleCollider:
   m_Height: 2.015022
   m_Direction: 1
   m_Center: {x: 0, y: 0.8765807, z: 0}
+--- !u!114 &567536298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567536294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadf6da5b7e1c1e4f9418733fdb494c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vertical: Vertical
+  horizontal: Horizontal
+  speedFactor: 7.5
 --- !u!1001 &569057162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14648,15 +14663,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.6
+      value: -35.73823
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -37.259796
+      value: -37.434948
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.583287
+      value: 492.24725
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 3}
       propertyPath: m_LocalRotation.w

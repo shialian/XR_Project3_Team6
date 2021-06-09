@@ -3543,7 +3543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertical: Vertical
   horizontal: Horizontal
-  speedFactor: 15
+  speedFactor: 7.5
 --- !u!114 &5434194140228616624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3572,6 +3572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseXName: Mouse X
   rotationFactor: 2
+  cameraY: 0
 --- !u!1001 &1222397480801630495
 PrefabInstance:
   m_ObjectHideFlags: 0
