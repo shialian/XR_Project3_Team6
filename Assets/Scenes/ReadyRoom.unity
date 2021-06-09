@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8e47c55ea27e46f41b3d77ad2d9072df,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -4215,12 +4216,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  winCondition: 3
   cookie: {fileID: 0}
   round: 1
-  localPlayerID: 0
   numPlayer: 0
+  localPlayerID: 0
   playerGetCookie: 0
+  winCondition: 1
   playerWinTheGame: 0
   winnerID: 0
 --- !u!114 &2406175992956524614 stripped

@@ -126,7 +126,7 @@ public class ShowPlayerMP : MonoBehaviour
         MP = myShootController.GetMP();
         LackMPText = transform.Find("lackMP").GetComponent<TextMeshProUGUI>();
 
-        StopMagic.SetActive(true);
+        StopMagic.SetActive(false);
         SpeedUpMagic.SetActive(false);
         SlowDownMagic.SetActive(false);
         RewindMagic.SetActive(false);

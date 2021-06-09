@@ -10,7 +10,8 @@ public class GetCookieOrNot : MonoBehaviour
     private Animator anim;
     private int playerID;
     private Transform warrior;
-    private PlaySceneSound SoundPlayer;
+
+    public bool endGame;
 
     private void Awake()
     {
@@ -18,13 +19,8 @@ public class GetCookieOrNot : MonoBehaviour
         startPosition = new Transform[2];
         warrior = transform.parent.parent;
         anim = GetComponent<Animator>();
+        endGame = false;
     }
-
-    private void Start()
-    {
-        SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
-    }
-
 
     private void Update()
     {
@@ -41,34 +37,43 @@ public class GetCookieOrNot : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        if (collision.collider.tag == "Cookie")
+        if (warrior.GetComponent<MyMovement>().isLocalPlayer)
         {
-            GameManager.singleton.GetTheCookie(playerID);
-            cookieOnHand.SetActive(true);
-            SoundPlayer.GetCookieSound();
-            anim.SetBool("Win", true);
-            Invoke("ResetAll", 2.5f);
+            if (collision.collider.tag == "Cookie")
+            {
+                if (GameManager.singleton.getCookies[playerID - 1] + 1 == GameManager.singleton.winCondition)
+                {
+                    endGame = true;
+                }
+                GameManager.singleton.GetTheCookie(playerID);
+                cookieOnHand.SetActive(true);
+                anim.SetBool("Win", true);
+                if (endGame == false)
+                {
+                    Invoke("ResetAll", 2.5f);
+                }
+            }
+            else if (collision.collider.tag == "Wagon")
+            {
+                ResetAll();
+            }
+            else if (collision.collider.tag == "Platform")
+            {
+                GetComponent<WizzardMovement>().enabled = true;
+            }
+            GameManager.singleton.HasThrowed(playerID);
         }
-        else if(collision.collider.tag != "Platform")
-        {
-            ResetAll();
-        }
-        else
-        {
-            GetComponent<WizzardMovement>().enabled = true;
-        }
-        GameManager.singleton.HasThrowed(playerID);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Water")
-        {
-            // play drop down water sound here!
-            SoundPlayer.IntoWaterSound();
-            Invoke("ResetAll", 2.5f);
-            GameManager.singleton.HasThrowed(playerID);
+        if (warrior.GetComponent<MyMovement>().isLocalPlayer) {
+            if (other.tag == "Water")
+            {
+                // play drop down water sound here!
+                Invoke("ResetAll", 2.5f);
+                GameManager.singleton.HasThrowed(playerID);
+            }
         }
     }
 

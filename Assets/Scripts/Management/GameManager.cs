@@ -71,7 +71,8 @@ public class GameManager : NetworkBehaviour
         }
         if(isServer)
         {
-            if ((PlayerThrowed() || playerGetCookie) && newRoundInvokeing == false)
+            CheckPlayerGetCookies();
+            if ((PlayerThrowed() || playerGetCookie) && newRoundInvokeing == false && playerWinTheGame == false)
             {
                 newRoundInvokeing = true;
                 if (playerGetCookie)
@@ -86,7 +87,6 @@ public class GameManager : NetworkBehaviour
                 }
                 ResetThrowed();
             }
-            CheckPlayerGetCookies();
         }
     }
 
@@ -122,6 +122,7 @@ public class GameManager : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void GetTheCookie(int id)
     {
+        Debug.LogError(id);
         getCookies[id - 1]++;
         playerGetCookie = true;
     }
@@ -146,15 +147,18 @@ public class GameManager : NetworkBehaviour
 
     private void CheckPlayerGetCookies()
     {
+        Debug.LogError(getCookies[1]);
         if(getCookies[0] == winCondition)
         {
             winnerID = 1;
             playerWinTheGame = true;
+            Time.timeScale = 0;
         }
-        else if(getCookies[0] == winCondition)
+        else if(getCookies[1] == winCondition)
         {
             winnerID = 2;
             playerWinTheGame = true;
+            Time.timeScale = 0;
         }
     }
 
@@ -183,6 +187,7 @@ public class GameManager : NetworkBehaviour
         bongs[id - 1]--;
     }
 
+    [Command(requiresAuthority = false)]
     public void LoadScene(string sceneName, int spawnID)
     {
         ConnectionManager.cmSingleton.ChangeSpawnID(spawnID);
