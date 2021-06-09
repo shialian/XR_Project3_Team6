@@ -89,7 +89,6 @@ public class ShowPlayerMP : MonoBehaviour
 
     }
     */
-    // Start is called before the first frame update
 
     public void showLackMP()
     {
