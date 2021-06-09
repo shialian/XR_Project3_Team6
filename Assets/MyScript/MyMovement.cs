@@ -22,6 +22,9 @@ public class MyMovement : NetworkBehaviour
 
     public float velocity;
 
+    private PlaySceneSound SoundPlayer;
+
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -30,6 +33,9 @@ public class MyMovement : NetworkBehaviour
         currRightControllerPosition = rightHandController.localPosition;
 
         localClock = GetComponent<LocalClock>();
+
+        SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
+
     }
 
     private void Update()
@@ -57,6 +63,7 @@ public class MyMovement : NetworkBehaviour
                 anim.SetFloat("Forward", thumbstickInput.y);
                 anim.SetFloat("Turn", thumbstickInput.x);
                 transform.position += speedFactor * new Vector3(thumbstickInput.x, 0.0f, thumbstickInput.y) * timeLine.fixedDeltaTime;
+                SoundPlayer.RunSound();
                 break;
             case MyMovingType.ControllerSwinging:
                 if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0 && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0)
@@ -73,6 +80,7 @@ public class MyMovement : NetworkBehaviour
                     anim.SetFloat("Forward", animForward);
                     velocity = (speedFactor * (leftControllerSwing + rightControllerSwing));
                     transform.position += forward * timeLine.fixedDeltaTime * velocity;
+                    SoundPlayer.RunSound();
                 }
                 else
                 {
@@ -84,6 +92,7 @@ public class MyMovement : NetworkBehaviour
                 anim.SetFloat("Turn", keyboardInput.x);
                 velocity = speedFactor;
                 transform.position += new Vector3(keyboardInput.x, 0.0f, keyboardInput.y) * speedFactor * timeLine.fixedDeltaTime;
+                SoundPlayer.RunSound();
                 break;
         }
     }

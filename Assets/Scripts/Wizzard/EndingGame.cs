@@ -7,6 +7,8 @@ public class EndingGame : MonoBehaviour
     public GameObject winUI;
     public GameObject loseUI;
 
+    private PlaySceneSound SoundPlayer;
+
     private int playerID;
 
     private void Start()
@@ -14,6 +16,8 @@ public class EndingGame : MonoBehaviour
         playerID = 0;
         winUI.SetActive(false);
         loseUI.SetActive(false);
+        SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
+
     }
 
     private void Update()
@@ -28,10 +32,12 @@ public class EndingGame : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 if (GameManager.singleton.winnerID == playerID)
                 {
+                    SoundPlayer.WinSound();
                     winUI.SetActive(true);
                 }
                 else
                 {
+                    SoundPlayer.LoseSound();
                     loseUI.SetActive(true);
                 }
         }
