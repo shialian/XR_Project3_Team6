@@ -2538,7 +2538,7 @@ MonoBehaviour:
   leftHandController: {fileID: 5434194140573816306}
   rightHandController: {fileID: 5434194140573819382}
   head: {fileID: 5434194140573733922}
-  type: 2
+  type: 1
   speedFactor: 35
   velocity: 0
 --- !u!114 &1848921173637045951
