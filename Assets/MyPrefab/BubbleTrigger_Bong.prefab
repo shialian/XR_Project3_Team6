@@ -115,6 +115,7 @@ MonoBehaviour:
   bubbleVFX: {fileID: 8312354114586748751, guid: 641722c3a358b8f4abf576c405f9a934,
     type: 3}
   isBox: 0
+  warrior: {fileID: 0}
 --- !u!54 &8340580159554786502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ MonoBehaviour:
   bubbleVFX: {fileID: 8312354114586748751, guid: 641722c3a358b8f4abf576c405f9a934,
     type: 3}
   isBong: 1
-  isDestroyAfterTrigger: 1
+  isDestroyAfterTrigger: 0
 --- !u!114 &8750170121049478323
 MonoBehaviour:
   m_ObjectHideFlags: 0

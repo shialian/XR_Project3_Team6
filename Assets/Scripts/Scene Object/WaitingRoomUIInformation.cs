@@ -60,7 +60,7 @@ public class WaitingRoomUIInformation : NetworkBehaviour
         }
         else
         {
-            //SoundPlayer.Stop();
+            SoundPlayer.Stop();
             hint.SetActive(true);
             countdown.gameObject.SetActive(false);
             countdown.timer = countdown.countdown;
