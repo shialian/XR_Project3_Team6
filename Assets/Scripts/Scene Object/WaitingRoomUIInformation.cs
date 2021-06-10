@@ -58,7 +58,7 @@ public class WaitingRoomUIInformation : NetworkBehaviour
                 GameManager.singleton.LoadScene(nextSceneName, 1);
             }
         }
-        else
+        else if(hint.activeSelf == false)
         {
             SoundPlayer.Stop();
             hint.SetActive(true);

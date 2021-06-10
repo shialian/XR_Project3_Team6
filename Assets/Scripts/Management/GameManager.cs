@@ -122,7 +122,6 @@ public class GameManager : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void GetTheCookie(int id)
     {
-        Debug.LogError(id);
         getCookies[id - 1]++;
         playerGetCookie = true;
     }
@@ -134,12 +133,14 @@ public class GameManager : NetworkBehaviour
         Transform warrior = players[localPlayerID - 1].transform;
         Transform pcCamera = warrior.transform.Find("Wagon").Find("Wizzard").Find("PC Camera");
         Transform wizzard = warrior.transform.Find("Wagon").Find("Wizzard");
+        GameObject.Find("Time Area Before Bridge").GetComponent<Whether>().RecoverAll();
         wizzard.GetComponent<GetCookieOrNot>().ResetAll();
         warrior.GetComponent<MyMovement>().enabled = true;
         pcCamera.GetComponent<MyShootController>().enabled = true;
         pcCamera.GetComponent<MyShootController>().shootType = MyTimeState.SpeedUp;
         cookie.SetActive(true);
         newRoundInvokeing = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void ResetBongs()
