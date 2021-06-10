@@ -131,15 +131,18 @@ public class GameManager : NetworkBehaviour
     public void NewRoundStart()
     {
         round++;
-        Transform warrior = players[localPlayerID - 1].transform;
-        Transform pcCamera = warrior.transform.Find("Wagon").Find("Wizzard").Find("PC Camera");
-        Transform wizzard = warrior.transform.Find("Wagon").Find("Wizzard");
-        wizzard.GetComponent<GetCookieOrNot>().ResetAll();
-        warrior.GetComponent<MyMovement>().enabled = true;
-        pcCamera.GetComponent<MyShootController>().enabled = true;
-        pcCamera.GetComponent<MyShootController>().shootType = MyTimeState.SpeedUp;
-        cookie.SetActive(true);
-        newRoundInvokeing = false;
+        for (int i=0; i< 2; i++) {
+            Transform warrior = players[i].transform;
+            //Transform warrior = players[localPlayerID - 1].transform;
+            Transform pcCamera = warrior.transform.Find("Wagon").Find("Wizzard").Find("PC Camera");
+            Transform wizzard = warrior.transform.Find("Wagon").Find("Wizzard");
+            wizzard.GetComponent<GetCookieOrNot>().ResetAll();
+            warrior.GetComponent<MyMovement>().enabled = true;
+            pcCamera.GetComponent<MyShootController>().enabled = true;
+            pcCamera.GetComponent<MyShootController>().shootType = MyTimeState.SpeedUp;
+            cookie.SetActive(true);
+            newRoundInvokeing = false;
+        }
     }
 
     private void ResetBongs()
