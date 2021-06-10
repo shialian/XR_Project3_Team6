@@ -23,7 +23,10 @@ public class MyMovement : NetworkBehaviour
     public float velocity;
 
     private PlaySceneSound SoundPlayer;
+    private bool isPlay;
+    private float timer;
 
+    private float Playtime;
 
     private void Start()
     {
@@ -35,11 +38,15 @@ public class MyMovement : NetworkBehaviour
         localClock = GetComponent<LocalClock>();
 
         SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
-
+        timer = 2.0f;
+        isPlay = false;
     }
 
     private void Update()
     {
+        if (Time.time - Playtime >= timer)
+            isPlay = false;
+
         if (type == MyMovingType.Thumbstick)
         {
             thumbstickInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
@@ -63,7 +70,13 @@ public class MyMovement : NetworkBehaviour
                 anim.SetFloat("Forward", thumbstickInput.y);
                 anim.SetFloat("Turn", thumbstickInput.x);
                 transform.position += speedFactor * new Vector3(thumbstickInput.x, 0.0f, thumbstickInput.y) * timeLine.fixedDeltaTime;
-                SoundPlayer.RunSound();
+                if (isPlay == false)
+                {
+                    SoundPlayer.RunSound();
+                    Playtime = Time.time;
+                    isPlay = true;
+                }
+                
                 break;
             case MyMovingType.ControllerSwinging:
                 if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) > 0 && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0)
@@ -80,7 +93,12 @@ public class MyMovement : NetworkBehaviour
                     anim.SetFloat("Forward", animForward);
                     velocity = (speedFactor * (leftControllerSwing + rightControllerSwing));
                     transform.position += forward * timeLine.fixedDeltaTime * velocity;
-                    SoundPlayer.RunSound();
+                    if (isPlay == false)
+                    {
+                        SoundPlayer.RunSound();
+                        Playtime = Time.time;
+                        isPlay = true;
+                    }
                 }
                 else
                 {
@@ -92,7 +110,12 @@ public class MyMovement : NetworkBehaviour
                 anim.SetFloat("Turn", keyboardInput.x);
                 velocity = speedFactor;
                 transform.position += new Vector3(keyboardInput.x, 0.0f, keyboardInput.y) * speedFactor * timeLine.fixedDeltaTime;
-                SoundPlayer.RunSound();
+                if (isPlay == false)
+                {
+                    SoundPlayer.RunSound();
+                    Playtime = Time.time;
+                    isPlay = true;
+                }
                 break;
         }
     }

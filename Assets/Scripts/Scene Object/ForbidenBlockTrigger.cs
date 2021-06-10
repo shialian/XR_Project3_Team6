@@ -26,9 +26,35 @@ public class ForbidenBlockTrigger : NetworkBehaviour
     {
         if(collision.collider.tag == "Player" && blockOn == false)
         {
+            
+            collision.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWarrior");
             foreach (Transform child in collision.transform.GetComponentsInChildren<Transform>())
             {
-                child.gameObject.layer = LayerMask.NameToLayer("SpecificIgnore");
+                if (child.name == "Hips" || child.name == "LichMesh")
+                {
+                    foreach (Transform c in child.GetComponentsInChildren<Transform>())
+                    {
+                        c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWizzard");
+                    }
+                }
+                if (child.name == "root" || child.name == "RPGHero")
+                {
+                    foreach (Transform c in child.GetComponentsInChildren<Transform>())
+                    {
+                        c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWarrior");
+                    }
+                }
+                if (child.name == "Wizzard")
+                {
+                    child.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWizzard");
+                }
+                if (child.name == "Colliders")
+                {
+                    foreach (Transform c in child.GetComponentsInChildren<Transform>())
+                    {
+                        c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnore");
+                    }
+                }
             }
             blockOn = true;
         }

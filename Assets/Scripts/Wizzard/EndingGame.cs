@@ -27,7 +27,7 @@ public class EndingGame : MonoBehaviour
             {
                 playerID = GameManager.singleton.localPlayerID;
             }
-            if (GameManager.singleton.playerWinTheGame)
+            if (GameManager.singleton.playerWinTheGame && UIOn())
             {
                 Cursor.lockState = CursorLockMode.None;
                 if (GameManager.singleton.winnerID == playerID)
@@ -42,5 +42,10 @@ public class EndingGame : MonoBehaviour
                 }
         }
         }
+    }
+
+    private bool UIOn()
+    {
+        return (winUI.activeSelf == false) && (loseUI.activeSelf == false);
     }
 }

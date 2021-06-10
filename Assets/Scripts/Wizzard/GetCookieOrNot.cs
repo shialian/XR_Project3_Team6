@@ -82,8 +82,8 @@ public class GetCookieOrNot : MonoBehaviour
         cookieOnHand.SetActive(false);
         anim.SetBool("Win", false);
         GameManager.singleton.ResetGetCookie();
-        ResetWizzard(transform);
         ResetWarrior(warrior);
+        ResetWizzard(transform);
         ResetGoal();
         ResetForbiddenBlock();
     }
@@ -97,6 +97,18 @@ public class GetCookieOrNot : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezeAll;
         wizzard.Find("PC Camera").GetComponent<MyShootController>().enabled = false;
+        wizzard.gameObject.layer = LayerMask.NameToLayer("Wizzard");
+        foreach (Transform child in wizzard.GetComponentsInChildren<Transform>())
+        {
+            if (child.name == "Hips" || child.name == "LichMesh")
+            {
+                Debug.LogError(child);
+                foreach (Transform c in child.GetComponentsInChildren<Transform>())
+                {
+                    c.gameObject.layer = LayerMask.NameToLayer("Wizzard");
+                }
+            }
+        }
     }
 
     private void ResetWarrior(Transform warrior)
@@ -105,9 +117,25 @@ public class GetCookieOrNot : MonoBehaviour
         warrior.rotation = startPosition[playerID - 1].rotation;
         warrior.GetComponent<Throw>().ResetAll();
         warrior.GetComponent<Throw>().enabled = false;
-        foreach(Transform child in warrior.GetComponentsInChildren<Transform>())
+        warrior.gameObject.layer = LayerMask.NameToLayer("Warrior");
+        foreach (Transform child in warrior.GetComponentsInChildren<Transform>())
         {
-            child.gameObject.layer = LayerMask.NameToLayer("Default");
+            if (child.name == "root" || child.name == "RPGHero")
+            {
+                Debug.LogError(child);
+                foreach (Transform c in child.GetComponentsInChildren<Transform>())
+                {
+                    c.gameObject.layer = LayerMask.NameToLayer("Warrior");
+                }
+            }
+            if (child.name == "Colliders")
+            {
+                Debug.LogError(child);
+                foreach (Transform c in child.GetComponentsInChildren<Transform>())
+                {
+                    c.gameObject.layer = LayerMask.NameToLayer("Default");
+                }
+            }
         }
     }
 

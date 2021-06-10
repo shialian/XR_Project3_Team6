@@ -27,10 +27,10 @@ TagManager:
   - Plane
   - SpecificIgnore
   - ForbidenBlock
-  - 
-  - 
-  - 
-  - 
+  - Warrior
+  - Wizzard
+  - SpecificIgnoreWarrior
+  - SpecificIgnoreWizzard
   - 
   - 
   - 
