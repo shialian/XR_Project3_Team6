@@ -68,8 +68,8 @@ public class Whether : NetworkBehaviour
                 break;
             case State.Pause:
                 RenderSettings.skybox = skyboxs[3];
-                Invoke("PauseAll", 1.0f);
-                Invoke("StartAll", 1.0f + pauseTime);
+                PauseAll();
+                Invoke("StartAll", pauseTime);
                 break;
             case State.Reverse:
                 RenderSettings.skybox = skyboxs[4];
@@ -88,6 +88,7 @@ public class Whether : NetworkBehaviour
     {
         globalClock.paused = false;
         state = (State)Random.Range(0, 5);
+        ChangeState(state);
         accumulator = 0f;
     }
 

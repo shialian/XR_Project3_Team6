@@ -24924,10 +24924,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _recordingInterval: 0.5
-  _mode: 1
+  _mode: 0
   _globalClockKey: Root
   _rewindable: 1
   _recordingDuration: 30
+--- !u!114 &1984533700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984533698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421fe5be538300640849c88458af4323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refClock: {fileID: 1561915558}
+--- !u!114 &1984533701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984533698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e02c4a0d9b6c47e09fc7c7924d2b953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localTimeScale: 1
+  _paused: 0
+  _parentKey: 
+  _parentBlend: 0
 --- !u!1 &2001051986
 GameObject:
   m_ObjectHideFlags: 0
@@ -26429,10 +26458,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _recordingInterval: 0.5
-  _mode: 1
+  _mode: 0
   _globalClockKey: Root
   _rewindable: 1
   _recordingDuration: 30
+--- !u!114 &2099422376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099422373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421fe5be538300640849c88458af4323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refClock: {fileID: 1561915558}
+--- !u!114 &2099422377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099422373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e02c4a0d9b6c47e09fc7c7924d2b953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _localTimeScale: 1
+  _paused: 0
+  _parentKey: 
+  _parentBlend: 0
 --- !u!1 &2117391256
 GameObject:
   m_ObjectHideFlags: 0
