@@ -13,7 +13,6 @@ public class GetCookieOrNot : MonoBehaviour
 
     public bool endGame;
 
-    private GameObject obj;
 
     private void Awake()
     {
@@ -55,6 +54,7 @@ public class GetCookieOrNot : MonoBehaviour
                 {
                     Invoke("ResetAll", 2.5f);
                 }
+                GameManager.singleton.HasThrowed(playerID);
             }
             else if (collision.collider.tag == "Wagon")
             {
@@ -63,8 +63,9 @@ public class GetCookieOrNot : MonoBehaviour
             else if (collision.collider.tag == "Platform")
             {
                 GetComponent<WizzardMovement>().enabled = true;
+                GameManager.singleton.HasThrowed(playerID);
             }
-            GameManager.singleton.HasThrowed(playerID);
+            Debug.LogError(collision.transform);
         }
     }
 
@@ -88,7 +89,7 @@ public class GetCookieOrNot : MonoBehaviour
         ResetWarrior(warrior);
         ResetWizzard(transform);
         ResetGoal();
-        ResetForbiddenBlock();
+        //ResetForbiddenBlock();
     }
 
     private void ResetWizzard(Transform wizzard)
@@ -105,7 +106,6 @@ public class GetCookieOrNot : MonoBehaviour
         {
             if (child.name == "Hips" || child.name == "LichMesh")
             {
-                Debug.LogError(child);
                 foreach (Transform c in child.GetComponentsInChildren<Transform>())
                 {
                     c.gameObject.layer = LayerMask.NameToLayer("Wizzard");
@@ -125,7 +125,6 @@ public class GetCookieOrNot : MonoBehaviour
         {
             if (child.name == "root" || child.name == "RPGHero")
             {
-                Debug.LogError(child);
                 foreach (Transform c in child.GetComponentsInChildren<Transform>())
                 {
                     c.gameObject.layer = LayerMask.NameToLayer("Warrior");
@@ -133,7 +132,6 @@ public class GetCookieOrNot : MonoBehaviour
             }
             if (child.name == "Colliders")
             {
-                Debug.LogError(child);
                 foreach (Transform c in child.GetComponentsInChildren<Transform>())
                 {
                     c.gameObject.layer = LayerMask.NameToLayer("Default");
@@ -149,6 +147,7 @@ public class GetCookieOrNot : MonoBehaviour
 
     public void ResetForbiddenBlock()
     {
+        Debug.LogError("Here");
         GameObject stair = GameObject.Find("Clider_stair");
         stair.GetComponent<ForbidenBlockTrigger>().blockOn = false;
     }

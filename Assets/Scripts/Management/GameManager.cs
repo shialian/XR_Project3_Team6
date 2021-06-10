@@ -131,18 +131,15 @@ public class GameManager : NetworkBehaviour
     public void NewRoundStart()
     {
         round++;
-        for (int i=0; i< 2; i++) {
-            Transform warrior = players[i].transform;
-            //Transform warrior = players[localPlayerID - 1].transform;
-            Transform pcCamera = warrior.transform.Find("Wagon").Find("Wizzard").Find("PC Camera");
-            Transform wizzard = warrior.transform.Find("Wagon").Find("Wizzard");
-            wizzard.GetComponent<GetCookieOrNot>().ResetAll();
-            warrior.GetComponent<MyMovement>().enabled = true;
-            pcCamera.GetComponent<MyShootController>().enabled = true;
-            pcCamera.GetComponent<MyShootController>().shootType = MyTimeState.SpeedUp;
-            cookie.SetActive(true);
-            newRoundInvokeing = false;
-        }
+        Transform warrior = players[localPlayerID - 1].transform;
+        Transform pcCamera = warrior.transform.Find("Wagon").Find("Wizzard").Find("PC Camera");
+        Transform wizzard = warrior.transform.Find("Wagon").Find("Wizzard");
+        wizzard.GetComponent<GetCookieOrNot>().ResetAll();
+        warrior.GetComponent<MyMovement>().enabled = true;
+        pcCamera.GetComponent<MyShootController>().enabled = true;
+        pcCamera.GetComponent<MyShootController>().shootType = MyTimeState.SpeedUp;
+        cookie.SetActive(true);
+        newRoundInvokeing = false;
     }
 
     private void ResetBongs()
@@ -152,7 +149,6 @@ public class GameManager : NetworkBehaviour
 
     private void CheckPlayerGetCookies()
     {
-        Debug.LogError(getCookies[1]);
         if(getCookies[0] == winCondition)
         {
             winnerID = 1;
@@ -170,12 +166,14 @@ public class GameManager : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void HasThrowed(int id)
     {
+        Debug.LogError("1");
         throwed[id - 1] = true;
     }
 
     [Command(requiresAuthority = false)]
     public void ResetThrowed()
     {
+        Debug.LogError(2);
         throwed[0] = false;
         throwed[1] = false;
     }
