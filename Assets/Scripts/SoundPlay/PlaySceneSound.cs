@@ -87,6 +87,7 @@ public class PlaySceneSound : MonoBehaviour
         {
             case 1:
                 audioSource.PlayOneShot(Stop_shot);
+                Invoke("Stop", 3f);
                 break;
             case 2:
                 audioSource.PlayOneShot(Speedup_shot);
@@ -153,6 +154,5 @@ public class PlaySceneSound : MonoBehaviour
     public void Stop()
     {
         audioSource.Stop();
-
     }
 }

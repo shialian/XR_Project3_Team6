@@ -39,7 +39,7 @@ public class WaitingRoomBGM : MonoBehaviour
     public void CountDownSound()
     {
 
-        audioSource.PlayOneShot(CountDown);
+        audioSource.PlayOneShot(CountDown, 0.5f);
 
     }
 
