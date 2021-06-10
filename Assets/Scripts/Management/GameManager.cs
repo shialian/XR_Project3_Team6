@@ -133,6 +133,8 @@ public class GameManager : NetworkBehaviour
         round++;
         Transform warrior = players[localPlayerID - 1].transform;
         Transform pcCamera = warrior.transform.Find("Wagon").Find("Wizzard").Find("PC Camera");
+        Transform wizzard = warrior.transform.Find("Wagon").Find("Wizzard");
+        wizzard.GetComponent<GetCookieOrNot>().ResetAll();
         warrior.GetComponent<MyMovement>().enabled = true;
         pcCamera.GetComponent<MyShootController>().enabled = true;
         pcCamera.GetComponent<MyShootController>().shootType = MyTimeState.SpeedUp;

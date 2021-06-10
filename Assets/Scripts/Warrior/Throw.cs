@@ -118,7 +118,7 @@ public class Throw : MonoBehaviour
     private void Throwing()
     {
         wizzard.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-        wizzard.AddForce(selectionPointer.transform.localScale.z * selectionPointer.transform.forward * 2000f);
+        wizzard.AddForce(selectionPointer.transform.forward * 1550f);//selectionPointer.transform.localScale.z * selectionPointer.transform.forward * 2000f);
         wizzard.useGravity = true;
         state = State.Throwed;
         this.enabled = false;

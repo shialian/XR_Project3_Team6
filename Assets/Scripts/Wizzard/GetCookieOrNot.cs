@@ -13,6 +13,8 @@ public class GetCookieOrNot : MonoBehaviour
 
     public bool endGame;
 
+    private GameObject obj;
+
     private void Awake()
     {
         playerID = 0;
@@ -21,6 +23,7 @@ public class GetCookieOrNot : MonoBehaviour
         anim = GetComponent<Animator>();
         endGame = false;
     }
+
 
     private void Update()
     {
@@ -77,7 +80,7 @@ public class GetCookieOrNot : MonoBehaviour
         }
     }
 
-    private void ResetAll()
+    public void ResetAll()
     {
         cookieOnHand.SetActive(false);
         anim.SetBool("Win", false);
