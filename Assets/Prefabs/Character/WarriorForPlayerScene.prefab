@@ -2650,6 +2650,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   cam: {fileID: 4077334721430619530}
+  OVRCam: {fileID: 5434194140574222340}
 --- !u!114 &2484059851484377903
 MonoBehaviour:
   m_ObjectHideFlags: 0
