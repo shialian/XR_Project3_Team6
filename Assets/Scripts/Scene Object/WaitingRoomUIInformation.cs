@@ -65,6 +65,10 @@ public class WaitingRoomUIInformation : NetworkBehaviour
             countdown.gameObject.SetActive(false);
             countdown.timer = countdown.countdown;
         }
+        else
+        {
+            countdown.timer = countdown.countdown;
+        }
     }
 
     [Command(requiresAuthority = false)]

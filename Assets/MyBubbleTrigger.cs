@@ -15,11 +15,21 @@ public class MyBubbleTrigger : MonoBehaviour
     public bool isDestroyAfterTrigger = false;
 
     private PlaySceneSound SoundPlayer;
+    private int playerID;
 
     public void Start()
     {
         canTrigger = true;
+        playerID = 0;
         SoundPlayer = (GameObject.Find("SoundPlayer")).GetComponent<PlaySceneSound>();
+    }
+
+    private void Update()
+    {
+        if(GameManager.singleton && playerID == 0)
+        {
+            playerID = GameManager.singleton.localPlayerID;
+        }
     }
 
     void PlayShotSound()
@@ -49,7 +59,7 @@ public class MyBubbleTrigger : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (!isBong) {
-            if (other.tag == "Player" && canTrigger == true)
+            if (other.tag == "Player" && canTrigger == true && other.gameObject != GameManager.singleton.players[playerID - 1])
             {
                 MyTestAI ai = other.GetComponent<MyTestAI>();
                 if (ai != null) {
