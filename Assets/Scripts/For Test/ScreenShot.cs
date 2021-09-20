@@ -7,7 +7,7 @@ public class ScreenShot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ScreenCapture.CaptureScreenshot("screenshot");
+        ScreenCapture.CaptureScreenshot("screenshot.png");
     }
 
     // Update is called once per frame
