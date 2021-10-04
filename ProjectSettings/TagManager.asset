@@ -31,10 +31,10 @@ TagManager:
   - Wizzard
   - SpecificIgnoreWarrior
   - SpecificIgnoreWizzard
-  - 
-  - 
-  - 
-  - 
+  - InvisibleWarrior
+  - InvisibleWizzard
+  - SpecificIgnoreInvisibleWarrior
+  - SpecificIgnoreInvisibleWizzard
   - 
   - 
   - 

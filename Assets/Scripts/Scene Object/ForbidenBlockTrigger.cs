@@ -26,27 +26,54 @@ public class ForbidenBlockTrigger : NetworkBehaviour
     {
         if(collision.collider.tag == "Player" && blockOn == false)
         {
-            
-            collision.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWarrior");
+            if (isLocalPlayer)
+            {
+                collision.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreInvisibleWarrior");
+            }
+            else
+            {
+                collision.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWarrior");
+            }
             foreach (Transform child in collision.transform.GetComponentsInChildren<Transform>())
             {
                 if (child.name == "Hips" || child.name == "LichMesh")
                 {
                     foreach (Transform c in child.GetComponentsInChildren<Transform>())
                     {
-                        c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWizzard");
+                        if (isLocalPlayer)
+                        {
+                            c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreInvisibleWizzard");
+                        }
+                        else
+                        {
+                            c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWizzard");
+                        }
                     }
                 }
                 if (child.name == "root" || child.name == "RPGHero")
                 {
                     foreach (Transform c in child.GetComponentsInChildren<Transform>())
                     {
-                        c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWarrior");
+                        if (isLocalPlayer)
+                        {
+                            c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreInvisibleWarrior");
+                        }
+                        else
+                        {
+                            c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWarrior");
+                        }
                     }
                 }
                 if (child.name == "Wizzard")
                 {
-                    child.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWizzard");
+                    if (isLocalPlayer)
+                    {
+                        child.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreInvisibleWizzard");
+                    }
+                    else
+                    {
+                        child.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWizzard");
+                    }
                 }
                 if (child.name == "Colliders")
                 {
