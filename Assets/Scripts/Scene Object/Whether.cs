@@ -12,7 +12,9 @@ public class Whether : NetworkBehaviour
     public float pauseTime = 2.0f;
     public float reverseTime = 2.0f;
 
+    public Light directionLight;
     public Material[] skyboxs;
+    public Color[] lightColors;
 
     public enum State
     {
@@ -57,22 +59,27 @@ public class Whether : NetworkBehaviour
             case State.Normal:
                 RenderSettings.skybox = skyboxs[0];
                 globalClock.localTimeScale = 1f;
+                directionLight.color = lightColors[0];
                 break;
             case State.SpeedUp:
                 RenderSettings.skybox = skyboxs[1];
                 globalClock.localTimeScale = speedUpFactor;
+                directionLight.color = lightColors[1];
                 break;
             case State.SlowDown:
                 RenderSettings.skybox = skyboxs[2];
                 globalClock.localTimeScale = slowDownFactor;
+                directionLight.color = lightColors[2];
                 break;
             case State.Pause:
                 RenderSettings.skybox = skyboxs[3];
+                directionLight.color = lightColors[3];
                 PauseAll();
                 Invoke("StartAll", pauseTime);
                 break;
             case State.Reverse:
                 RenderSettings.skybox = skyboxs[4];
+                directionLight.color = lightColors[4];
                 ReverseAll();
                 Invoke("RecoverAll", reverseTime);
                 break;

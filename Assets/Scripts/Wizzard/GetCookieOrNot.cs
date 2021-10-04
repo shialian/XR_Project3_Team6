@@ -104,12 +104,9 @@ public class GetCookieOrNot : MonoBehaviour
         wizzard.gameObject.layer = LayerMask.NameToLayer("Wizzard");
         foreach (Transform child in wizzard.GetComponentsInChildren<Transform>())
         {
-            if (child.name == "Hips" || child.name == "LichMesh")
+            if (child.name == "LichMesh")
             {
-                foreach (Transform c in child.GetComponentsInChildren<Transform>())
-                {
-                    c.gameObject.layer = LayerMask.NameToLayer("Wizzard");
-                }
+                child.gameObject.layer = LayerMask.NameToLayer("InvisibleWizzard");
             }
         }
     }
@@ -123,12 +120,9 @@ public class GetCookieOrNot : MonoBehaviour
         warrior.gameObject.layer = LayerMask.NameToLayer("Warrior");
         foreach (Transform child in warrior.GetComponentsInChildren<Transform>())
         {
-            if (child.name == "root" || child.name == "RPGHero")
+            if (child.name == "RPGHero")
             {
-                foreach (Transform c in child.GetComponentsInChildren<Transform>())
-                {
-                    c.gameObject.layer = LayerMask.NameToLayer("Warrior");
-                }
+                child.gameObject.layer = LayerMask.NameToLayer("InvisibleWarrior");
             }
             if (child.name == "Colliders")
             {

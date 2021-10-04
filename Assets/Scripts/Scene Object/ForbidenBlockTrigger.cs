@@ -26,64 +26,35 @@ public class ForbidenBlockTrigger : NetworkBehaviour
     {
         if(collision.collider.tag == "Player" && blockOn == false)
         {
-            if (isLocalPlayer)
+            foreach(Transform child in collision.transform.GetComponentsInChildren<Transform>())
             {
-                collision.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreInvisibleWarrior");
-            }
-            else
-            {
-                collision.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWarrior");
-            }
-            foreach (Transform child in collision.transform.GetComponentsInChildren<Transform>())
-            {
-                if (child.name == "Hips" || child.name == "LichMesh")
+                if (GetCollider(child))
                 {
-                    foreach (Transform c in child.GetComponentsInChildren<Transform>())
-                    {
-                        if (isLocalPlayer)
-                        {
-                            c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreInvisibleWizzard");
-                        }
-                        else
-                        {
-                            c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWizzard");
-                        }
-                    }
-                }
-                if (child.name == "root" || child.name == "RPGHero")
-                {
-                    foreach (Transform c in child.GetComponentsInChildren<Transform>())
-                    {
-                        if (isLocalPlayer)
-                        {
-                            c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreInvisibleWarrior");
-                        }
-                        else
-                        {
-                            c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWarrior");
-                        }
-                    }
-                }
-                if (child.name == "Wizzard")
-                {
-                    if (isLocalPlayer)
-                    {
-                        child.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreInvisibleWizzard");
-                    }
-                    else
-                    {
-                        child.gameObject.layer = LayerMask.NameToLayer("SpecificIgnoreWizzard");
-                    }
-                }
-                if (child.name == "Colliders")
-                {
-                    foreach (Transform c in child.GetComponentsInChildren<Transform>())
-                    {
-                        c.gameObject.layer = LayerMask.NameToLayer("SpecificIgnore");
-                    }
+                    child.gameObject.layer = LayerMask.NameToLayer("SpecificIgnore");
                 }
             }
             blockOn = true;
         }
+    }
+
+    private bool GetCollider(Transform transform)
+    {
+        if (transform.GetComponent<BoxCollider>())
+        {
+            return true;
+        }
+        if (transform.GetComponent<CapsuleCollider>())
+        {
+            return true;
+        }
+        if (transform.GetComponent<MeshCollider>())
+        {
+            return true;
+        }
+        if (transform.GetComponent<SphereCollider>())
+        {
+            return true;
+        }
+        return false;
     }
 }
