@@ -45,13 +45,14 @@ public class Whether : NetworkBehaviour
             if (isServer)
             {
                 state = (State)Random.Range(0, 5);
+                ChangeState(state);
+                accumulator = 0f;
             }
             //state = State.Reverse;
-            ChangeState(state);
-            accumulator = 0f;
         }
     }
 
+    [ClientRpc]
     private void ChangeState(State state)
     {
         switch (state)

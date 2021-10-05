@@ -144,5 +144,6 @@ public class GetCookieOrNot : MonoBehaviour
         Debug.LogError("Here");
         GameObject stair = GameObject.Find("Clider_stair");
         stair.GetComponent<ForbidenBlockTrigger>().blockOn = false;
+        stair.GetComponent<ForbidenBlockTrigger>().CmdBlockOnAndOff(stair.GetComponent<ForbidenBlockTrigger>().blockOn);
     }
 }

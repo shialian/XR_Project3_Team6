@@ -16,10 +16,10 @@ public class ForbidenBlockTrigger : NetworkBehaviour
 
     private void Update()
     {
-        if (forbiddenBlock.activeSelf != blockOn)
-        {
-            forbiddenBlock.SetActive(blockOn);
-        }
+        //if (forbiddenBlock.activeSelf != blockOn)
+        //{
+        //    forbiddenBlock.SetActive(blockOn);
+        //}
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -34,7 +34,20 @@ public class ForbidenBlockTrigger : NetworkBehaviour
                 }
             }
             blockOn = true;
+            CmdBlockOnAndOff(blockOn);
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdBlockOnAndOff(bool flag)
+    {
+        RpcBlockOnAndOff(flag);
+    }
+
+    [ClientRpc]
+    public void RpcBlockOnAndOff(bool flag)
+    {
+        forbiddenBlock.SetActive(flag);
     }
 
     private bool GetCollider(Transform transform)
