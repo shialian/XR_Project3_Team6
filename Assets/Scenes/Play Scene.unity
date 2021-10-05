@@ -6664,6 +6664,7 @@ MonoBehaviour:
   maxMagic: 0
   currentMagic: 0
   magicRecoverySpeed: 0
+  bongImage: {fileID: 0}
 --- !u!114 &410943447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24194,7 +24195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1692528389
 AudioListener:
   m_ObjectHideFlags: 0
@@ -31074,6 +31075,7 @@ MonoBehaviour:
   maxMagic: 0
   currentMagic: 0
   magicRecoverySpeed: 0
+  bongImage: {fileID: 0}
 --- !u!114 &501029767416019184
 MonoBehaviour:
   m_ObjectHideFlags: 0

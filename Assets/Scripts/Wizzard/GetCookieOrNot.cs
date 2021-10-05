@@ -58,7 +58,11 @@ public class GetCookieOrNot : MonoBehaviour
             }
             else if (collision.collider.tag == "Wagon")
             {
-                ResetAll();
+                Throw throwed = warrior.GetComponent<Throw>();
+                if (throwed.state == Throw.State.Throwed)
+                {
+                    ResetAll();
+                }
             }
             else if (collision.collider.tag == "Platform")
             {
@@ -141,7 +145,6 @@ public class GetCookieOrNot : MonoBehaviour
 
     public void ResetForbiddenBlock()
     {
-        Debug.LogError("Here");
         GameObject stair = GameObject.Find("Clider_stair");
         stair.GetComponent<ForbidenBlockTrigger>().blockOn = false;
         stair.GetComponent<ForbidenBlockTrigger>().CmdBlockOnAndOff(stair.GetComponent<ForbidenBlockTrigger>().blockOn);
