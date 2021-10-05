@@ -89,7 +89,7 @@ public class GetCookieOrNot : MonoBehaviour
         ResetWarrior(warrior);
         ResetWizzard(transform);
         ResetGoal();
-        //ResetForbiddenBlock();
+        ResetForbiddenBlock();
     }
 
     private void ResetWizzard(Transform wizzard)

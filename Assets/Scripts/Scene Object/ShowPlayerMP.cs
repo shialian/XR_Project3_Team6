@@ -78,7 +78,10 @@ public class ShowPlayerMP : MonoBehaviour
                 RewindMagic.SetActive(true);
                 break;
             case 5:
-                Bomb.SetActive(true);
+                if (GameManager.singleton.bongs[GameManager.singleton.localPlayerID - 1] > 0)
+                {
+                    Bomb.SetActive(true);
+                }
                 break;
             default:
                 break;

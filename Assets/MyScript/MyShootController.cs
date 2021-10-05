@@ -26,6 +26,7 @@ public class MyShootController : MonoBehaviour
     public float currentMagic;
     public float magicRecoverySpeed;
 
+    public GameObject bongImage;
 
     private MyMovement movement;
 
@@ -222,6 +223,7 @@ public class MyShootController : MonoBehaviour
         {
             float velocity = movement.velocity;
             timeBoxManager_bong.CreateTimeAreaByServerCalling(transform.position, Quaternion.identity, hit.point, velocity);
+            bongImage.SetActive(false);
         }
     }
 

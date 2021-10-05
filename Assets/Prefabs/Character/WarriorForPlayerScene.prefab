@@ -5181,6 +5181,7 @@ MonoBehaviour:
   maxMagic: 100
   currentMagic: 100
   magicRecoverySpeed: 15
+  bongImage: {fileID: 9097824959266056275}
 --- !u!114 &4077334721795807806
 MonoBehaviour:
   m_ObjectHideFlags: 0
